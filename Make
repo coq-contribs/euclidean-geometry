@@ -1,0 +1,6 @@
+-R . EuclideanGeometry
+geom.v
+
+# fichers exemples :
+# Bolyai.v
+# Hilbert5.v
