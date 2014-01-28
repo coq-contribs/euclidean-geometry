@@ -1,3 +1,9 @@
+Require Import A1_Plan A2_Orientation A5_Cercle A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C3_SumDistance C5_TriangularInequality C7_Tactics .
+Require Import G4_Tactics .
+Require Import H1_Triangles.
+
 Section BUILDING_TRIANGLE.
 
 Definition ThirdVertex : forall A B C D E : Point,

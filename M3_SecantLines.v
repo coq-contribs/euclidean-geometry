@@ -1,3 +1,8 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import E2_NotEquidirectedIntersection .
+Require Import L6_Tactics .
+Require Import M1_SuperImposedLines M2_ParallelLines.
+
 Section SECANT_LINES.
 
 Lemma TwoPointsSecantLine : forall d1 d2 : Line, forall A B : Point,

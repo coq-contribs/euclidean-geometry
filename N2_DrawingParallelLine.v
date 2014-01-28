@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B2_CollinearProp B5_BetweenProp B7_Tactics .
+Require Import F5_Tactics .
+Require Import J2_MidPoint J4_Tactics .
+Require Import L1_Parallelogramm L2_StrictParallelogramm L6_Tactics .
+Require Import M5_Tactics.
+
 Section DRAWING_PARALLEL.
 
 Definition Parallel : forall l1 : Line, forall A : Point,

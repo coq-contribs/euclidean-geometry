@@ -1,3 +1,11 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B7_Tactics .
+Require Import G1_Angles G3_ParticularAngle .
+Require Import H1_Triangles .
+Require Import I1_SupplementaryAngle I2_Supplement I4_Tactics .
+Require Import J1_MidLine J2_MidPoint J3_MidProp J4_Tactics .
+Require Import K1_RightAngle.
+
 Section MIDLINEandRIGHTANGLE.
 
 Lemma RightAngleNotCollinear : forall A B C : Point,

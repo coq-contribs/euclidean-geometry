@@ -1,3 +1,13 @@
+Require Import A1_Plan A2_Orientation A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C7_Tactics .
+Require Import F5_Tactics .
+Require Import G1_Angles G3_ParticularAngle .
+Require Import H1_Triangles .
+Require Import I2_Supplement I3_OpposedAngles .
+Require Import K3_Tactics .
+Require Import L1_Parallelogramm L2_StrictParallelogramm.
+
 
 Section PARALLELOGRAMM_ANGLES.
 

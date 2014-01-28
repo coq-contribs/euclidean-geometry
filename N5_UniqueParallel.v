@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B4_RaysProp B7_Tactics .
+Require Import D5_Tactics .
+Require Import E1_IntersectionLinesProp E3_FourPointsIntersection E4_Tactics .
+Require Import M1_SuperImposedLines M5_Tactics .
+Require Import N2_DrawingParallelLine N3_ParallelOpposedLine N4_DiscreteThales.
+
 Section UNICITY_OF_THE_PARALLEL.
 
 Lemma PaschLine : forall A B C D : Point, forall l : Line,

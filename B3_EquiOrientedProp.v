@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A7_Tactics.
+Require Import B1_ClockwiseProp B2_CollinearProp.
+
 Section EQUIORIENTED_PROP.
 
 Lemma EquiOrientedAABC : forall A B C : Point,

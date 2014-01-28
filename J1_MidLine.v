@@ -1,3 +1,11 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B1_ClockwiseProp B7_Tactics .
+Require Import C1_Distance .
+Require Import D2_ExistsClockwise .
+Require Import G1_Angles .
+Require Import H1_Triangles H2_ParticularTriangles H4_Tactics .
+Require Import I4_Tactics.
+
 Section MIDLINE.
 
 Definition MidLine (A B : Point) : A <> B -> Line.

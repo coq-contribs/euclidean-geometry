@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics.
+Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp.
+
 Section RAYS_PROP.
 
 Lemma OpenRayAAB : forall A B : Point,

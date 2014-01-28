@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C5_TriangularInequality C7_Tactics .
+Require Import D5_Tactics .
+Require Import F5_Tactics .
+Require Import G1_Angles G4_Tactics.
+
 Section TRIANGLES.
 
 Inductive Triangle : Set :=

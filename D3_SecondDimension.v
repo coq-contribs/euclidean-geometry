@@ -1,3 +1,8 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp B4_RaysProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C7_Tactics .
+Require Import D2_ExistsClockwise.
+
 Section SECOND_DIMENSION.
 
 Ltac setClockwise A B H C :=

@@ -1,3 +1,11 @@
+Require Import A1_Plan A2_Orientation .
+Require Import C1_Distance .
+Require Import F3_Graduation .
+Require Import G1_Angles .
+Require Import H1_Triangles .
+Require Import K3_Tactics .
+Require Import L1_Parallelogramm L2_StrictParallelogramm L4_ParallelogrammAngles.
+
 Section N_PARALLELOGRAMM.
 
 Lemma StrictParallelogrammBECD : forall A B C D E : Point, 

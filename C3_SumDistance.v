@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A3_Metrique A4_Droite A5_Cercle A7_Tactics .
+Require Import B2_CollinearProp B3_EquiOrientedProp B4_RaysProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C2_CircleAndDistance.
+
 Section SUM_OF_DISTANCES.
 
 Definition DistancePlus : forall M N : Point, Point.

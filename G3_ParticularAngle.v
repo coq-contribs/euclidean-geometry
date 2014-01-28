@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle .
+Require Import B2_CollinearProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C2_CircleAndDistance C3_SumDistance C5_TriangularInequality C7_Tactics .
+Require Import D1_IntersectionCirclesProp .
+Require Import F1_IntersectionDiameterProp F2_MarkSegment F5_Tactics .
+Require Import G1_Angles.
+
 Section PARTICULAR_ANGLES.
 
 Ltac destructAngle A B C Hab Hac B' C' bac := 

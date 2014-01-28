@@ -1,3 +1,5 @@
+Require Import A1_Plan A3_Metrique A4_Droite.
+
 Section CIRCLE.
 
 (* Le compas est le constructeur de cercle a partir d'un point, le centre et de deux points donnant le rayon.*)

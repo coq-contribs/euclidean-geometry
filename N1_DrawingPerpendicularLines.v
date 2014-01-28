@@ -1,3 +1,12 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A7_Tactics .
+Require Import B1_ClockwiseProp B4_RaysProp B7_Tactics .
+Require Import C1_Distance C5_TriangularInequality .
+Require Import D1_IntersectionCirclesProp D3_SecondDimension D5_Tactics .
+Require Import F2_MarkSegment F5_Tactics .
+Require Import J4_Tactics .
+Require Import L6_Tactics .
+Require Import M1_SuperImposedLines M4_PerpendicularLines M5_Tactics.
+
 Section DRAWING_PERPENDICULAR.
 
 Definition  PerpendicularDown : forall (l : Line) (A : Point),

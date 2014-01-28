@@ -1,3 +1,8 @@
+Require Import A1_Plan A2_Orientation A7_Tactics .
+Require Import B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C3_SumDistance C4_DistanceLe C6_DistanceTimesN C7_Tactics .
+Require Import D2_ExistsClockwise D3_SecondDimension.
+
 Require Export Arith.
 
 Section DISTANCE_LT.

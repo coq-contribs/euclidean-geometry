@@ -1,3 +1,11 @@
+Require Import A1_Plan A2_Orientation A4_Droite .
+Require Import B7_Tactics .
+Require Import D5_Tactics .
+Require Import I2_Supplement .
+Require Import L2_StrictParallelogramm L6_Tactics .
+Require Import M1_SuperImposedLines M5_Tactics .
+Require Import N2_DrawingParallelLine.
+
 Section PARALLEL_OPPOSED_LINES.
 
 Lemma TwoPointsOnParallel : forall d : Line, forall C : Point, forall H : ~OnLine d C,

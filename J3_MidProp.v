@@ -1,3 +1,13 @@
+Require Import A1_Plan A2_Orientation A4_Droite .
+Require Import B1_ClockwiseProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C3_SumDistance C7_Tactics .
+Require Import E4_Tactics .
+Require Import F5_Tactics .
+Require Import G1_Angles G3_ParticularAngle .
+Require Import H1_Triangles .
+Require Import I4_Tactics .
+Require Import J1_MidLine J2_MidPoint.
+
 Section MIDPOINTandMIDLINE_PROPERTIES.
 
 Lemma ClockwiseAMidLineAMidPoint : forall A B : Point, forall H : A <> B,

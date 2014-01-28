@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A5_Cercle A7_Tactics .
+Require Import C1_Distance C2_CircleAndDistance C5_TriangularInequality C7_Tactics.
+
 Section INTERSECTION_CIRCLES_PROPERTIES.
 
 Definition IntersectionCirclesPoint (c1 c2 : Circle) (H : SecantCircles c1 c2) := 

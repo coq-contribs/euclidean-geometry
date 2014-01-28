@@ -1,115 +1,142 @@
 
 (* Axioms and definitions. *)
 
-Load "A1_Plan.v".
-Load "A2_Orientation.v".
-Load "A3_Metrique.v".
-Load "A4_Droite.v".
-Load "A5_Cercle.v".
-Load "A6_Intersection.v".
-Load "A7_Tactics.v".
+Require Import
+A1_Plan
+A2_Orientation
+A3_Metrique
+A4_Droite
+A5_Cercle
+A6_Intersection
+A7_Tactics
+.
 
 (* First Properties. *)
 
-Load "B1_ClockwiseProp.v".
-Load "B2_CollinearProp.v".
-Load "B3_EquiOrientedProp.v".
-Load "B4_RaysProp.v".
-Load "B5_BetweenProp.v".
-Load "B6_EquiDirectedProp.v".
-Load "B7_Tactics.v".
+Require Import
+B1_ClockwiseProp
+B2_CollinearProp
+B3_EquiOrientedProp
+B4_RaysProp
+B5_BetweenProp
+B6_EquiDirectedProp
+B7_Tactics
+.
 
 (* Distances. *)
 
-Load "C1_Distance.v".
-Load "C2_CircleAndDistance.v".
-Load "C3_SumDistance.v".
-Load "C4_DistanceLe.v".
-Load "C5_TriangularInequality.v".
-Load "C6_DistanceTimesN.v".
-Load "C7_Tactics.v".
+Require Import
+C1_Distance
+C2_CircleAndDistance
+C3_SumDistance
+C4_DistanceLe
+C5_TriangularInequality
+C6_DistanceTimesN
+C7_Tactics
+.
 
 (* Second Dimension. *)
 
-Load "D1_IntersectionCirclesProp.v".
-Load "D2_ExistsClockwise.v".
-Load "D3_SecondDimension.v".
-Load "D4_DistanceLt.v".
-Load "D5_Tactics.v".
+Require Import
+D1_IntersectionCirclesProp
+D2_ExistsClockwise
+D3_SecondDimension
+D4_DistanceLt
+D5_Tactics
+.
 
 (* Intersection of Lines. *)
 
-Load "E1_IntersectionLinesProp.v".
-Load "E2_NotEquidirectedIntersection.v".
-Load "E3_FourPointsIntersection.v".
-Load "E4_Tactics.v".
+Require Import
+E1_IntersectionLinesProp
+E2_NotEquidirectedIntersection
+E3_FourPointsIntersection
+E4_Tactics
+.
 
 (* Intersection of Line and Circle, graduation of a Line. *)
 
-Load "F1_IntersectionDiameterProp.v".
-Load "F2_MarkSegment.v".
-Load "F3_Graduation.v".
-Load "F4_ArchimedianDistance.v".
-Load "F5_Tactics.v".
+Require Import
+F1_IntersectionDiameterProp
+F2_MarkSegment
+F3_Graduation
+F4_ArchimedianDistance
+F5_Tactics
+.
 
 (* Angles. *)
 
-Load "G1_Angles.v".
-Load "G2_AngleProp.v".
-Load "G3_ParticularAngle.v".
-Load "G4_Tactics.v".
+Require Import
+G1_Angles
+G2_AngleProp
+G3_ParticularAngle
+G4_Tactics
+.
 
 (* Triangles. *)
 
-Load "H1_Triangles.v".
-Load "H2_ParticularTriangles.v".
-Load "H3_BuildingTriangle.v".
-Load "H4_Tactics.v".
+Require Import
+H1_Triangles
+H2_ParticularTriangles
+H3_BuildingTriangle
+H4_Tactics
+.
 
 (* Supplementary angle *)
 
-Load "I1_SupplementaryAngle.v".
-Load "I2_Supplement.v".
-Load "I3_OpposedAngles.v".
-Load "I4_Tactics.v".
+Require Import
+I1_SupplementaryAngle
+I2_Supplement
+I3_OpposedAngles
+I4_Tactics
+.
 
 (*Milieu et mediatrice. *)
 
-Load "J1_MidLine.v".
-Load "J2_MidPoint.v".
-Load "J3_MidProp.v".
-Load "J4_Tactics.v".
+Require Import
+J1_MidLine
+J2_MidPoint
+J3_MidProp
+J4_Tactics
+.
 
 (* Angles droits. *)
 
-Load "K1_RightAngle.v".
-Load "K2_MidLineandRightAngle.v".
-Load "K3_Tactics.v".
+Require Import
+K1_RightAngle
+K2_MidLineandRightAngle
+K3_Tactics
+.
 
 (*Parallelogrammes. *)
 
-Load "L1_Parallelogramm.v".
-Load "L2_StrictParallelogramm.v".
-Load "L3_EquidirectedParallelogramm.v".
-Load "L4_ParallelogrammAngles.v".
-Load "L5_nParallelogramm.v".
-Load "L6_Tactics.v".
+Require Import
+L1_Parallelogramm
+L2_StrictParallelogramm
+L3_EquidirectedParallelogramm
+L4_ParallelogrammAngles
+L5_nParallelogramm
+L6_Tactics
+.
 
 (*Droites. *)
 
-Load "M1_SuperImposedLines.v".
-Load "M2_ParallelLines.v".
-Load "M3_SecantLines.v".
-Load "M4_PerpendicularLines.v".
-Load "M5_Tactics.v".
+Require Import
+M1_SuperImposedLines
+M2_ParallelLines
+M3_SecantLines
+M4_PerpendicularLines
+M5_Tactics
+.
 
 (*Constructions de droites *)
 
-Load "N1_DrawingPerpendicularLines.v".
-Load "N2_DrawingParallelLine.v".
-Load "N3_ParallelOpposedLine.v".
-Load "N4_DiscreteThales.v".
-Load "N5_UniqueParallel.v".
-Load "N6_ParallelAndPerpendicularLines.v".
-Load "N7_Tactics.v".
-
+Require Import
+N1_DrawingPerpendicularLines
+N2_DrawingParallelLine
+N3_ParallelOpposedLine
+N4_DiscreteThales
+N5_UniqueParallel
+N6_ParallelAndPerpendicularLines
+N7_Tactics
+.

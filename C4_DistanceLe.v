@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A3_Metrique .
+Require Import B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C3_SumDistance.
+
 Section DISTANCE_LE.
 
 Definition DistanceLe := fun M N : Point => Segment Oo N M.

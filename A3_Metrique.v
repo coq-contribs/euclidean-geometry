@@ -1,3 +1,5 @@
+Require Import A1_Plan A2_Orientation.
+
 Section EQUIDISTANT.
 
 (* L'equidistance est une relation sur quatre points du plan definie axiomatiquement. *)

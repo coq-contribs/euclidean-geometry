@@ -1,3 +1,13 @@
+Require Import A1_Plan A2_Orientation A4_Droite .
+Require Import B7_Tactics .
+Require Import E4_Tactics .
+Require Import G1_Angles .
+Require Import I2_Supplement I3_OpposedAngles .
+Require Import J1_MidLine J2_MidPoint .
+Require Import K1_RightAngle .
+Require Import L6_Tactics .
+Require Import M1_SuperImposedLines M3_SecantLines.
+
 Section PERPENDICULAR_LINES.
 
 Inductive Perpendicular (l1 l2 : Line) : Prop :=

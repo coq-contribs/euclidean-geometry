@@ -1,3 +1,13 @@
+Require Import A1_Plan A2_Orientation A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C7_Tactics .
+Require Import E4_Tactics .
+Require Import F2_MarkSegment F5_Tactics .
+Require Import G1_Angles .
+Require Import J2_MidPoint J4_Tactics .
+Require Import K3_Tactics .
+Require Import L1_Parallelogramm L2_StrictParallelogramm.
+
 Section EQUIDIRECTED_PARALLELOGRAMM.
 
 Lemma FlatParallelogramm : forall (A B C D : Point)  (H : Parallelogramm A B C D),

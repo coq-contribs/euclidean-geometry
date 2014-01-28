@@ -1,3 +1,8 @@
+Require Import A1_Plan A2_Orientation A7_Tactics .
+Require Import B1_ClockwiseProp B2_CollinearProp B5_BetweenProp B7_Tactics .
+Require Import D5_Tactics .
+Require Import E2_NotEquidirectedIntersection.
+
 Section FOUR_POINTS_INTERSECTION.
 
 Lemma ClockwiseAntiClockwiseBetween : forall A B C D E : Point,

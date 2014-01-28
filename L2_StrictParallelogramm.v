@@ -1,3 +1,13 @@
+Require Import A1_Plan A2_Orientation .
+Require Import B1_ClockwiseProp B2_CollinearProp B7_Tactics .
+Require Import C1_Distance .
+Require Import F2_MarkSegment F5_Tactics .
+Require Import G1_Angles .
+Require Import H1_Triangles .
+Require Import J2_MidPoint J4_Tactics .
+Require Import K3_Tactics .
+Require Import L1_Parallelogramm.
+
 Section STRICT_PARALLELOGRAMM.
 
 Inductive  StrictParallelogramm (A B C D : Point) : Prop := 

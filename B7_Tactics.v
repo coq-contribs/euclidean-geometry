@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A7_Tactics.
+Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp B4_RaysProp B5_BetweenProp B6_EquiDirectedProp.
+
 (* immediate *)
 
 Ltac immClockwise1 := match goal with

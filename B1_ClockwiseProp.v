@@ -1,3 +1,5 @@
+Require Import A1_Plan A2_Orientation.
+
 Section CLOCKWISE_PROPERTIES.
 
 Lemma FigureDistinct : forall f : Figure, forall A B : Point,

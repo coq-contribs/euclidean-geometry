@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A3_Metrique A5_Cercle A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C2_CircleAndDistance C3_SumDistance C4_DistanceLe.
+
 Section TRIANGULAR_INEQUALITY.
 
 Definition TriangularInequality (A B C D E F : Point) := DistanceLe (Distance E F) (DistancePlus (Distance A B) (Distance C D)).

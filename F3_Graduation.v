@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation .
+Require Import B2_CollinearProp B4_RaysProp B5_BetweenProp .
+Require Import C1_Distance .
+Require Import D3_SecondDimension .
+Require Import E4_Tactics .
+Require Import F2_MarkSegment.
+
 Require Export Omega.
 
 Section GRADUATION.

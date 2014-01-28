@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A3_Metrique A4_Droite A5_Cercle A7_Tactics .
+Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp B4_RaysProp B5_BetweenProp B6_EquiDirectedProp B7_Tactics .
+Require Import C1_Distance C2_CircleAndDistance C3_SumDistance C4_DistanceLe C5_TriangularInequality C6_DistanceTimesN.
+
 Ltac simplCircle2 := unfold uCircle in *; repeat match goal with
 	| H: context [(Diameter _ _)] |- _ => unfold Diameter in H; simpl OnLine in H
 	| |- context [(Diameter _ _)]  => 	unfold Diameter; simpl OnLine 

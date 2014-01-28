@@ -1,3 +1,8 @@
+Require Import A1_Plan A2_Orientation A7_Tactics .
+Require Import G1_Angles .
+Require Import H4_Tactics .
+Require Import I2_Supplement.
+
 Section OPPOSED_ANGLES.
 
 Inductive OpposedAngles (A B C D E : Point) : Prop :=

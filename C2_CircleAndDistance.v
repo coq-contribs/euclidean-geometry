@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A7_Tactics .
+Require Import C1_Distance.
+
 Section CIRCLE_AND_DISTANCE.
 
 Definition Radius := fun c : Circle => let (_, A, B) := c in Distance A B.

@@ -1,3 +1,5 @@
+Require Import A1_Plan A2_Orientation.
+
 Section LINES.
 
 (* La regle est le constructeur de droite a partir de deux points distincts. *)

@@ -1,3 +1,12 @@
+Require Import A1_Plan A2_Orientation A5_Cercle A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C5_TriangularInequality C7_Tactics .
+Require Import D1_IntersectionCirclesProp D5_Tactics .
+Require Import F2_MarkSegment F5_Tactics .
+Require Import G1_Angles G3_ParticularAngle G4_Tactics .
+Require Import H1_Triangles H4_Tactics .
+Require Import I1_SupplementaryAngle.
+
 Section SUPPLEMENT.
 
 Ltac destructAngle A B C Hba Hbc M := 

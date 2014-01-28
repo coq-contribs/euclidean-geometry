@@ -1,3 +1,8 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B4_RaysProp B7_Tactics .
+Require Import D5_Tactics .
+Require Import E1_IntersectionLinesProp.
+
 Section NOT_EQUIDIRECTED_INTERSECTION_POINT.
 
 Lemma FourPointsSecantLine : forall A B C D,

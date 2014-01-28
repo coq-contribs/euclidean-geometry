@@ -1,3 +1,47 @@
+Require Import A1_Plan
+A2_Orientation
+A3_Metrique
+A4_Droite
+A5_Cercle
+A6_Intersection
+A7_Tactics
+B1_ClockwiseProp
+B2_CollinearProp
+B3_EquiOrientedProp
+B4_RaysProp
+B5_BetweenProp
+B6_EquiDirectedProp
+B7_Tactics
+C1_Distance
+C2_CircleAndDistance
+C3_SumDistance
+C4_DistanceLe
+C5_TriangularInequality
+C6_DistanceTimesN
+C7_Tactics
+D1_IntersectionCirclesProp
+D2_ExistsClockwise
+D3_SecondDimension
+D4_DistanceLt
+D5_Tactics
+E1_IntersectionLinesProp
+E2_NotEquidirectedIntersection
+E3_FourPointsIntersection
+E4_Tactics
+F1_IntersectionDiameterProp
+F2_MarkSegment
+F3_Graduation
+F4_ArchimedianDistance
+F5_Tactics
+G1_Angles
+G2_AngleProp
+G3_ParticularAngle
+G4_Tactics
+H1_Triangles
+H2_ParticularTriangles
+H3_BuildingTriangle
+H4_Tactics.
+
 Section SUPPLEMENTARY_ANGLE.
 
 Definition Supplementary : forall alpha : Point, forall H : IsAngle alpha, Point.

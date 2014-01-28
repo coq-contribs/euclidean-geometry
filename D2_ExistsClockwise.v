@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A5_Cercle A7_Tactics .
+Require Import B7_Tactics .
+Require Import C1_Distance C5_TriangularInequality C7_Tactics.
+
 Section BUILDING_CLOCKWISE.
 
 Lemma  EquilateralInequality : forall A B : Point, 

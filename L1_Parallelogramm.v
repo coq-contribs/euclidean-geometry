@@ -1,3 +1,11 @@
+Require Import A1_Plan A2_Orientation .
+Require Import C1_Distance .
+Require Import F2_MarkSegment F5_Tactics .
+Require Import H1_Triangles .
+Require Import I3_OpposedAngles .
+Require Import J2_MidPoint .
+Require Import K3_Tactics.
+
 Section PARALLELOGRAMM.
 
 Inductive Parallelogramm (A B C D : Point) : Prop := 

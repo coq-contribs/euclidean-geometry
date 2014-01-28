@@ -1,3 +1,11 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B1_ClockwiseProp B7_Tactics .
+Require Import C1_Distance .
+Require Import E3_FourPointsIntersection .
+Require Import F5_Tactics .
+Require Import I4_Tactics .
+Require Import J1_MidLine.
+
 Section MIDPOINT.
 
 Definition MidPoint := fun (A B : Point) (H : A <> B) =>

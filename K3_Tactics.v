@@ -1,3 +1,15 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A7_Tactics .
+Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp B4_RaysProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C2_CircleAndDistance C3_SumDistance C4_DistanceLe C5_TriangularInequality C6_DistanceTimesN C7_Tactics .
+Require Import D1_IntersectionCirclesProp D3_SecondDimension D4_DistanceLt D5_Tactics .
+Require Import E1_IntersectionLinesProp E2_NotEquidirectedIntersection E3_FourPointsIntersection E4_Tactics .
+Require Import F1_IntersectionDiameterProp F2_MarkSegment F3_Graduation F4_ArchimedianDistance F5_Tactics .
+Require Import G1_Angles G2_AngleProp G3_ParticularAngle G4_Tactics .
+Require Import H1_Triangles H2_ParticularTriangles H4_Tactics .
+Require Import I1_SupplementaryAngle I2_Supplement I3_OpposedAngles I4_Tactics .
+Require Import J1_MidLine J2_MidPoint J3_MidProp J4_Tactics .
+Require Import K1_RightAngle K2_MidLineandRightAngle.
+
 
 Ltac congruentToEq10 := unfold NullAngle, ElongatedAngle, RightAngle in *;
 repeat match goal with

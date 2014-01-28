@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A7_Tactics.
+Require Import B1_ClockwiseProp.
+
 Section COLLINEAR_PROPERTIES.
 
 Lemma CollinearAAB : forall A B, Collinear A A B.

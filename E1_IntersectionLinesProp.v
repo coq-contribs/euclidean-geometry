@@ -1,3 +1,5 @@
+Require Import A1_Plan A4_Droite A6_Intersection A7_Tactics.
+
 Section INTERSECTION_LINES_PROPERTIES.
 
 Definition InterLinesPoint (l1 l2 : Line) (H : SecantLines l1 l2) := 

@@ -1,3 +1,12 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B7_Tactics .
+Require Import G1_Angles .
+Require Import I2_Supplement .
+Require Import K1_RightAngle .
+Require Import L2_StrictParallelogramm L6_Tactics .
+Require Import M1_SuperImposedLines M4_PerpendicularLines M5_Tactics .
+Require Import N1_DrawingPerpendicularLines N5_UniqueParallel.
+
 Section PARALLEL_AND_PERPENDICULAR_LINES.
 
 Lemma RightRightEqMLine : forall A B C D : Point, forall Hab : A <> B, forall Hdb : D <> B,

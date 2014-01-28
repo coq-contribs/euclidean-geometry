@@ -1,3 +1,9 @@
+Require Import A1_Plan A2_Orientation .
+Require Import B5_BetweenProp .
+Require Import C1_Distance C3_SumDistance C6_DistanceTimesN C7_Tactics .
+Require Import E4_Tactics .
+Require Import F3_Graduation.
+
 Section ARCHIMEDIAN_DISTANCE.
 
 Lemma GraduationSegmentSn : forall n : nat, forall A B : Point, forall Hab : A <> B, 

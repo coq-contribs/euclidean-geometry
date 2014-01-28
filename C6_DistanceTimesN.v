@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A3_Metrique .
+Require Import B4_RaysProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C3_SumDistance C4_DistanceLe.
+
 Section DISTANCE_TIMES_N.
 
 Fixpoint DistanceTimes (n:nat) (A B : Point) {struct n} : Point :=

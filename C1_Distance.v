@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A3_Metrique A4_Droite A5_Cercle A6_Intersection A7_Tactics.
+Require Import B7_Tactics.
+
 Section DISTANCE.
 
 (* L'ensemble des distances est isomorphe a la demi-droite [OU). *)

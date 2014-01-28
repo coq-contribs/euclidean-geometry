@@ -1,3 +1,6 @@
+Require Import A1_Plan A2_Orientation A7_Tactics.
+Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp B4_RaysProp.
+
 Section BETWEEN_PROP.
 
 Lemma BetweenCollinear : forall A B C : Point,

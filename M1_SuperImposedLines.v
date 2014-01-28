@@ -1,3 +1,7 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A7_Tactics .
+Require Import D3_SecondDimension .
+Require Import L6_Tactics.
+
 Section EQUAL_LINES.
 
 Inductive EqLine : Line -> Line -> Prop :=

@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A4_Droite A7_Tactics .
+Require Import B7_Tactics .
+Require Import D3_SecondDimension D5_Tactics .
+Require Import E2_NotEquidirectedIntersection .
+Require Import L6_Tactics .
+Require Import M1_SuperImposedLines.
+
 Section PARALLEL_LINES.
 
 Lemma ParallelLinesRefl : forall d : Line,

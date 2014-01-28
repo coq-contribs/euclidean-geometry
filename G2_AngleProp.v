@@ -1,3 +1,9 @@
+Require Import A1_Plan A2_Orientation .
+Require Import C1_Distance .
+Require Import D1_IntersectionCirclesProp .
+Require Import F5_Tactics .
+Require Import G1_Angles.
+
 Section ANGLE_PROPERTIES.
 
 Lemma  EqAngleUniquePointSide1 : forall A B C D : Point, 

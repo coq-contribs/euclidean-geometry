@@ -1,3 +1,5 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A6_Intersection.
+
 Ltac contrapose0 H := let Hyp := fresh in 
 	(intro Hyp; apply H; generalize Hyp; clear Hyp H);
 	intro H. 

@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A5_Cercle .
+Require Import B7_Tactics .
+Require Import C1_Distance C3_SumDistance C5_TriangularInequality C7_Tactics .
+Require Import D2_ExistsClockwise .
+Require Import G1_Angles G4_Tactics .
+Require Import H1_Triangles.
+
 Section PARTICULAR_TRIANGLES.
 
 (* non degenerated *)

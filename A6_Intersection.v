@@ -1,3 +1,5 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle.
+
 Section INTERSECTION.
 
 (* Une figure est une intersection dans les trois cas suivants : *)

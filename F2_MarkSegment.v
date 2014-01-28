@@ -1,3 +1,10 @@
+Require Import A1_Plan A2_Orientation A4_Droite A5_Cercle A7_Tactics .
+Require Import B2_CollinearProp B5_BetweenProp B7_Tactics .
+Require Import C1_Distance C3_SumDistance .
+Require Import D3_SecondDimension .
+Require Import E4_Tactics .
+Require Import F1_IntersectionDiameterProp.
+
 Section MARK_SEGMENT.
 
 Definition AddSegmentPoint (A B C D E : Point) : 

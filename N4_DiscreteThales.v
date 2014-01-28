@@ -1,3 +1,14 @@
+Require Import A1_Plan A2_Orientation .
+Require Import B7_Tactics .
+Require Import C1_Distance C6_DistanceTimesN C7_Tactics .
+Require Import D4_DistanceLt .
+Require Import F3_Graduation F4_ArchimedianDistance F5_Tactics .
+Require Import G1_Angles .
+Require Import H1_Triangles .
+Require Import I2_Supplement .
+Require Import L2_StrictParallelogramm L6_Tactics .
+Require Import M5_Tactics.
+
 Section DISCRETE_THALES.
 
 Lemma DThales : forall (A B C : Point) (Hab : A <> B) (Hac : A <> C) (Habc : Clockwise A B C) (n : nat),

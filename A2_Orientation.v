@@ -1,3 +1,5 @@
+Require Import A1_Plan.
+
 Section CLOCKWISE.
 
 (* Il existe une relation sur les triplets de points d'orientation dans le sens des aiguilles d'une montre. *)
