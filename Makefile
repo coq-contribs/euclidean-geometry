@@ -22,6 +22,8 @@
 # 
 # This Makefile may take arguments passed as environment variables:
 # COQBIN to specify the directory where Coq binaries resides;
+# TIMECMD set a command to log .v compilation time;
+# TIMED if non empty, use the default time command as TIMECMD;
 # ZDEBUG/COQDEBUG to specify debug flags for ocamlc&ocamlopt/coqc;
 # DSTROOT to specify a prefix to install path.
 
@@ -30,8 +32,13 @@ define donewline
 
 
 endef
-includecmdwithout@ = $(eval $(subst @,$(donewline),$(shell { $(1) | tr '\n' '@'; })))
+includecmdwithout@ = $(eval $(subst @,$(donewline),$(shell { $(1) | tr -d '\r' | tr '\n' '@'; })))
 $(call includecmdwithout@,$(COQBIN)coqtop -config)
+
+TIMED=
+TIMECMD=
+STDTIME?=/usr/bin/time -f "$* (user: %U mem: %M ko)"
+TIMER=$(if $(TIMED), $(STDTIME), $(TIMECMD))
 
 ##########################
 #                        #
@@ -50,13 +57,15 @@ COQDOCLIBS?=-R . EuclideanGeometry
 
 
 OPT?=
+COQDEP?="$(COQBIN)coqdep" -c
 COQFLAGS?=-q $(OPT) $(COQLIBS) $(OTHERFLAGS) $(COQ_XML)
 COQCHKFLAGS?=-silent -o
-COQC?=$(COQBIN)coqc
-COQDEP?=$(COQBIN)coqdep -c
-GALLINA?=$(COQBIN)gallina
-COQDOC?=$(COQBIN)coqdoc
-COQCHK?=$(COQBIN)coqchk
+COQDOCFLAGS?=-interpolate -utf8
+COQC?=$(TIMER) "$(COQBIN)coqc"
+GALLINA?="$(COQBIN)gallina"
+COQDOC?="$(COQBIN)coqdoc"
+COQCHK?="$(COQBIN)coqchk"
+COQMKTOP?="$(COQBIN)coqmktop"
 
 ##################
 #                #
@@ -65,12 +74,12 @@ COQCHK?=$(COQBIN)coqchk
 ##################
 
 ifdef USERINSTALL
-XDG_DATA_HOME?=$(HOME)/.local/share
+XDG_DATA_HOME?="$(HOME)/.local/share"
 COQLIBINSTALL=$(XDG_DATA_HOME)/coq
 COQDOCINSTALL=$(XDG_DATA_HOME)/doc/coq
 else
-COQLIBINSTALL=${COQLIB}user-contrib
-COQDOCINSTALL=${DOCDIR}user-contrib
+COQLIBINSTALL="${COQLIB}user-contrib"
+COQDOCINSTALL="${DOCDIR}user-contrib"
 endif
 
 ######################
@@ -156,12 +165,17 @@ VFILES:=geom.v\
 -include $(addsuffix .d,$(VFILES))
 .SECONDARY: $(addsuffix .d,$(VFILES))
 
-VOFILES:=$(VFILES:.v=.vo)
+VO=vo
+VOFILES:=$(VFILES:.v=.$(VO))
 GLOBFILES:=$(VFILES:.v=.glob)
-VIFILES:=$(VFILES:.v=.vi)
 GFILES:=$(VFILES:.v=.g)
 HTMLFILES:=$(VFILES:.v=.html)
 GHTMLFILES:=$(VFILES:.v=.g.html)
+ifeq '$(HASNATDYNLINK)' 'true'
+HASNATDYNLINK_OR_EMPTY := yes
+else
+HASNATDYNLINK_OR_EMPTY :=
+endif
 
 #######################################
 #                                     #
@@ -171,29 +185,31 @@ GHTMLFILES:=$(VFILES:.v=.g.html)
 
 all: $(VOFILES) 
 
-spec: $(VIFILES)
-
+quick:
+	$(MAKE) -f $(firstword $(MAKEFILE_LIST)) all VO=vi
+checkproofs:
+	$(COQC) $(COQDEBUG) $(COQFLAGS) -schedule-vi-checking $(J) $(VOFILES:%.vo=%.vi)
 gallina: $(GFILES)
 
 html: $(GLOBFILES) $(VFILES)
 	- mkdir -p html
-	$(COQDOC) -toc -html $(COQDOCLIBS) -d html $(VFILES)
+	$(COQDOC) -toc $(COQDOCFLAGS) -html $(COQDOCLIBS) -d html $(VFILES)
 
 gallinahtml: $(GLOBFILES) $(VFILES)
 	- mkdir -p html
-	$(COQDOC) -toc -html -g $(COQDOCLIBS) -d html $(VFILES)
+	$(COQDOC) -toc $(COQDOCFLAGS) -html -g $(COQDOCLIBS) -d html $(VFILES)
 
 all.ps: $(VFILES)
-	$(COQDOC) -toc -ps $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
+	$(COQDOC) -toc $(COQDOCFLAGS) -ps $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
 
 all-gal.ps: $(VFILES)
-	$(COQDOC) -toc -ps -g $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
+	$(COQDOC) -toc $(COQDOCFLAGS) -ps -g $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
 
 all.pdf: $(VFILES)
-	$(COQDOC) -toc -pdf $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
+	$(COQDOC) -toc $(COQDOCFLAGS) -pdf $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
 
 all-gal.pdf: $(VFILES)
-	$(COQDOC) -toc -pdf -g $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
+	$(COQDOC) -toc $(COQDOCFLAGS) -pdf -g $(COQDOCLIBS) -o $@ `$(COQDEP) -sort -suffix .v $^`
 
 validate: $(VOFILES)
 	$(COQCHK) $(COQCHKFLAGS) $(COQLIBS) $(notdir $(^:.vo=))
@@ -203,7 +219,7 @@ beautify: $(VFILES:=.beautified)
 	@echo 'Do not do "make clean" until you are sure that everything went well!'
 	@echo 'If there were a problem, execute "for file in $$(find . -name \*.v.old -print); do mv $${file} $${file%.old}; done" in your shell/'
 
-.PHONY: all opt byte archclean clean install userinstall depend html validate
+.PHONY: all opt byte archclean clean install uninstall_me.sh uninstall userinstall depend html validate
 
 ####################
 #                  #
@@ -221,37 +237,48 @@ userinstall:
 	+$(MAKE) USERINSTALL=true install
 
 install:
-	for i in $(VOFILES); do \
-	 install -d `dirname $(DSTROOT)$(COQLIBINSTALL)/EuclideanGeometry/$$i`; \
-	 install -m 0644 $$i $(DSTROOT)$(COQLIBINSTALL)/EuclideanGeometry/$$i; \
+	cd "." && for i in $(VOFILES) $(CMOFILES) $(CMIFILES) $(CMAFILES); do \
+	 install -d "`dirname "$(DSTROOT)"$(COQLIBINSTALL)/EuclideanGeometry/$$i`"; \
+	 install -m 0644 $$i "$(DSTROOT)"$(COQLIBINSTALL)/EuclideanGeometry/$$i; \
 	done
 
 install-doc:
-	install -d $(DSTROOT)$(COQDOCINSTALL)/EuclideanGeometry/html
+	install -d "$(DSTROOT)"$(COQDOCINSTALL)/EuclideanGeometry/html
 	for i in html/*; do \
-	 install -m 0644 $$i $(DSTROOT)$(COQDOCINSTALL)/EuclideanGeometry/$$i;\
+	 install -m 0644 $$i "$(DSTROOT)"$(COQDOCINSTALL)/EuclideanGeometry/$$i;\
 	done
 
+uninstall_me.sh:
+	echo '#!/bin/sh' > $@ 
+	printf 'cd "$${DSTROOT}"$(COQLIBINSTALL)/EuclideanGeometry && rm -f $(VOFILES) $(CMOFILES) $(CMIFILES) $(CMAFILES) && find . -type d -and -empty -delete\ncd "$${DSTROOT}"$(COQLIBINSTALL) && find "EuclideanGeometry" -maxdepth 0 -and -empty -exec rmdir -p \{\} \;\n' >> "$@"
+	printf 'cd "$${DSTROOT}"$(COQDOCINSTALL)/EuclideanGeometry \\\n' >> "$@"
+	printf '&& rm -f $(shell find "html" -maxdepth 1 -and -type f -print)\n' >> "$@"
+	printf 'cd "$${DSTROOT}"$(COQDOCINSTALL) && find EuclideanGeometry/html -maxdepth 0 -and -empty -exec rmdir -p \{\} \;\n' >> "$@"
+	chmod +x $@
+
+uninstall: uninstall_me.sh
+	sh $<
+
 clean:
-	rm -f $(VOFILES) $(VIFILES) $(GFILES) $(VFILES:.v=.v.d) $(VFILES:=.beautified) $(VFILES:=.old)
+	rm -f $(VOFILES) $(VOFILES:.vo=.vi) $(GFILES) $(VFILES:.v=.v.d) $(VFILES:=.beautified) $(VFILES:=.old)
 	rm -f all.ps all-gal.ps all.pdf all-gal.pdf all.glob $(VFILES:.v=.glob) $(VFILES:.v=.tex) $(VFILES:.v=.g.tex) all-mli.tex
-	- rm -rf html mlihtml
+	- rm -rf html mlihtml uninstall_me.sh
 
 archclean:
 	rm -f *.cmx *.o
 
 printenv:
-	@$(COQBIN)coqtop -config
-	@echo CAMLC =	$(CAMLC)
-	@echo CAMLOPTC =	$(CAMLOPTC)
-	@echo PP =	$(PP)
-	@echo COQFLAGS =	$(COQFLAGS)
-	@echo COQLIBINSTALL =	$(COQLIBINSTALL)
-	@echo COQDOCINSTALL =	$(COQDOCINSTALL)
+	@"$(COQBIN)coqtop" -config
+	@echo 'CAMLC =	$(CAMLC)'
+	@echo 'CAMLOPTC =	$(CAMLOPTC)'
+	@echo 'PP =	$(PP)'
+	@echo 'COQFLAGS =	$(COQFLAGS)'
+	@echo 'COQLIBINSTALL =	$(COQLIBINSTALL)'
+	@echo 'COQDOCINSTALL =	$(COQDOCINSTALL)'
 
 Makefile: Make
 	mv -f $@ $@.bak
-	$(COQBIN)coq_makefile -f $< -o $@
+	"$(COQBIN)coq_makefile" -f $< -o $@
 
 
 ###################
@@ -264,25 +291,25 @@ Makefile: Make
 	$(COQC) $(COQDEBUG) $(COQFLAGS) $*
 
 %.vi: %.v
-	$(COQC) -i $(COQDEBUG) $(COQFLAGS) $*
+	$(COQC) -quick $(COQDEBUG) $(COQFLAGS) $*
 
 %.g: %.v
 	$(GALLINA) $<
 
 %.tex: %.v
-	$(COQDOC) -latex $< -o $@
+	$(COQDOC) $(COQDOCFLAGS) -latex $< -o $@
 
 %.html: %.v %.glob
-	$(COQDOC) -html $< -o $@
+	$(COQDOC) $(COQDOCFLAGS) -html $< -o $@
 
 %.g.tex: %.v
-	$(COQDOC) -latex -g $< -o $@
+	$(COQDOC) $(COQDOCFLAGS) -latex -g $< -o $@
 
 %.g.html: %.v %.glob
-	$(COQDOC) -html -g $< -o $@
+	$(COQDOC) $(COQDOCFLAGS)  -html -g $< -o $@
 
 %.v.d: %.v
-	$(COQDEP) -slash $(COQLIBS) "$<" > "$@" || ( RV=$$?; rm -f "$@"; exit $${RV} )
+	$(COQDEP) $(COQLIBS) "$<" > "$@" || ( RV=$$?; rm -f "$@"; exit $${RV} )
 
 %.v.beautified:
 	$(COQC) $(COQDEBUG) $(COQFLAGS) -beautify $*
