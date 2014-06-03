@@ -4,6 +4,8 @@ Require Import C1_Distance C2_CircleAndDistance C7_Tactics .
 Require Import D3_SecondDimension .
 Require Import E4_Tactics.
 
+Unset Standard Proposition Elimination Names.
+
 Section INTERSECTION_DIAMETER_PROPERTIES.
 
 Definition InterDiameterPoint (l : Line) (c : Circle) (H : Diameter l c) := 

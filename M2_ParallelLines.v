@@ -5,6 +5,8 @@ Require Import E2_NotEquidirectedIntersection .
 Require Import L6_Tactics .
 Require Import M1_SuperImposedLines.
 
+Unset Standard Proposition Elimination Names.
+
 Section PARALLEL_LINES.
 
 Lemma ParallelLinesRefl : forall d : Line,

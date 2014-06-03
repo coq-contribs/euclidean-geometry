@@ -3,6 +3,8 @@ Require Import B1_ClockwiseProp B2_CollinearProp B3_EquiOrientedProp B4_RaysProp
 Require Import C1_Distance C7_Tactics .
 Require Import D2_ExistsClockwise.
 
+Unset Standard Proposition Elimination Names.
+
 Section SECOND_DIMENSION.
 
 Ltac setClockwise A B H C :=

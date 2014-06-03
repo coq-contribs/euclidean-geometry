@@ -6,6 +6,8 @@ Require Import I3_OpposedAngles .
 Require Import J2_MidPoint .
 Require Import K3_Tactics.
 
+Unset Standard Proposition Elimination Names.
+
 Section PARALLELOGRAMM.
 
 Inductive Parallelogramm (A B C D : Point) : Prop := 
