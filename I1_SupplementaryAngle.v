@@ -47,7 +47,7 @@ Section SUPPLEMENTARY_ANGLE.
 Definition Supplementary : forall alpha : Point, forall H : IsAngle alpha, Point.
 Proof.
 	intros.
-	setAngle6 alpha Oo uU ipattern:beta.
+	setAngle6 alpha Oo uU ipattern:(beta).
 	  immediate6.
 	  immediate6.
 	 exact beta.
@@ -102,7 +102,7 @@ Proof.
 	 immediate7.
 	 immediate7.
 	 simpl in H1; right.
-	   setInterDiameter lineOoUu uCircle ipattern:beta.
+	   setInterDiameter lineOoUu uCircle ipattern:(beta).
 	   apply trans_eq with (y := beta).
 	  apply sym_eq; apply Hun; split; immediate7.
 	  apply Hun; split; immediate7.

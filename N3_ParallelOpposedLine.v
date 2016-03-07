@@ -15,9 +15,9 @@ Lemma TwoPointsOnParallel : forall d : Line, forall C : Point, forall H : ~OnLin
 		Between D C E /\ OnLine (Parallel d C H) D /\ OnLine (Parallel d C H) E.
 Proof.
 	intros.
-	setStrictParallelogramm11 (LineA d) (LineB d) C ipattern:D.
+	setStrictParallelogramm11 (LineA d) (LineB d) C ipattern:(D).
 	exists D.
-	setStrictParallelogramm11 C (LineA d) (LineB d) ipattern:E.
+	setStrictParallelogramm11 C (LineA d) (LineB d) ipattern:(E).
 	exists E.
 	assert (Between D C E).
 	apply (TriangleBetween (LineA d) C (LineB d) C D (LineA d) (LineB d) E); immediate12.

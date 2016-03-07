@@ -230,7 +230,7 @@ Lemma InterCirclesPointDef : forall c1 c2 : Circle,
 	{M : Point |  f M /\ Unicity M f}.
 Proof.
 	intros.
-	setInterCircles1 c1 c2 ipattern:P.
+	setInterCircles1 c1 c2 ipattern:(P).
 	 unfold SecantCircles, SecantCircles1 in *; intuition.
 	   apply TriangleSpecSpec1; trivial.
 	 exists P; unfold f in |- *; simpl in |- *; intuition.

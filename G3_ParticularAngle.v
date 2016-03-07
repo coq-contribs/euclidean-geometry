@@ -62,7 +62,7 @@ Proof.
 	unfold NullAngle in |- *; intros.
 	from5 H0 (A <> C).
 	 apply (CongruentEqAngle B A C Uu Oo Uu H H1 DistinctOoUu DistinctOoUu).
-	   destructAngle A B C H H1 ipattern:D ipattern:E ipattern:alpha.
+	   destructAngle A B C H H1 ipattern:(D) ipattern:(E) ipattern:(alpha).
 	   apply H5; intuition.
 	  rewrite DistanceOoAngle; immediate5.
 	  since5 (D = E).
@@ -80,7 +80,7 @@ Proof.
 	assert (Hab := CongruentAngleDistinctBA B A C Uu Oo Uu H).
 	assert (Hac := CongruentAngleDistinctBC B A C Uu Oo Uu H).
 	generalize  (EqCongruentAngle B A C Uu Oo Uu Hab Hac DistinctOoUu DistinctOoUu H).
-	destructAngle A B C Hab Hac ipattern:D ipattern:E ipattern:alpha.
+	destructAngle A B C Hab Hac ipattern:(D) ipattern:(E) ipattern:(alpha).
 	intro; from5 H1 (D = E).
 	   subst.
 	   rewrite DistanceUuAngle.
@@ -205,7 +205,7 @@ Proof.
 	 assert (Hac : A <> C).
 	  immediate5.
 	  apply (CongruentEqAngle B A C Uu Oo uU Hab Hac DistinctOoUu DistinctOouU).
-	    destructAngle A B C Hab Hac ipattern:D ipattern:E ipattern:alpha.
+	    destructAngle A B C Hab Hac ipattern:(D) ipattern:(E) ipattern:(alpha).
 	    rewrite (EqAnglePoint uU DistinctOoUu DistinctOouU).
 	   unfold uU in |- *; byDefEqPoint5.
 	     assert (Segment Uu alpha Oo).
@@ -229,7 +229,7 @@ Lemma ElongatedAngleBetween : forall A B C : Point,
 Proof.
 	intros; inversion H.
 	generalize H0; clear H0.
-	destructAngle A B C Hba Hbc ipattern:D ipattern:E ipattern:alpha.
+	destructAngle A B C Hba Hbc ipattern:(D) ipattern:(E) ipattern:(alpha).
 	rewrite (EqAnglePoint uU Hed Hef).
 	 intro; step5 H5.
 	   step5 H8.

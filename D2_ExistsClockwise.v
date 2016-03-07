@@ -21,9 +21,9 @@ Qed.
 Definition ExistsClockwise (A B : Point) : A <> B -> Point.
 Proof.
 	intros.
-	setCircle0 A A B ipattern:gamma1.
-	setCircle0 B A B ipattern:gamma2.
-	setInterCircles gamma1 gamma2 ipattern:C.
+	setCircle0 A A B ipattern:(gamma1).
+	setCircle0 B A B ipattern:(gamma2).
+	setInterCircles gamma1 gamma2 ipattern:(C).
 	  exact (EquilateralTriangleSpec A B).
 	 exact C.
 Defined.
@@ -34,10 +34,10 @@ Ltac destructExistsClockwise A B H := unfold ExistsClockwise in |- *;
 Lemma NotOpenRayABExistsClockwise : forall (A B : Point) (H : A <> B),
 	~OpenRay A B (ExistsClockwise A B H).
 Proof.
-	intros; destructExistsClockwise ipattern:A ipattern:B ipattern:H.
-	setLine0 A B ipattern:ab.
-	setCircle0 A A B ipattern:g.
-	setInterDiameter ab g ipattern:D.
+	intros; destructExistsClockwise ipattern:(A) ipattern:(B) ipattern:(H).
+	setLine0 A B ipattern:(ab).
+	setCircle0 A A B ipattern:(g).
+	setInterDiameter ab g ipattern:(D).
 	 intro; elim (DistinctEqDistanceDistinct A B B C H (sym_eq H2)).
 	   apply trans_eq with (y := D).
 	  apply sym_eq; apply Hun; split; immediate2.
@@ -47,10 +47,10 @@ Qed.
 Lemma NotOpenRayBAExistsClockwise : forall (A B : Point) (H : A <> B),
 	~OpenRay B A (ExistsClockwise A B H).
 Proof.
-	intros; destructExistsClockwise ipattern:A ipattern:B ipattern:H.
-	setLine0 B A ipattern:ba.
-	setCircle0 B A B ipattern:g.
-	setInterDiameter ba g ipattern:D.
+	intros; destructExistsClockwise ipattern:(A) ipattern:(B) ipattern:(H).
+	setLine0 B A ipattern:(ba).
+	setCircle0 B A B ipattern:(g).
+	setInterDiameter ba g ipattern:(D).
 	 intro; elim (DistinctEqDistanceDistinct A B A C H (sym_eq H1)).
 	   apply trans_eq with (y := D).
 	  apply sym_eq; apply Hun; split; immediate2.
@@ -60,14 +60,14 @@ Qed.
 Lemma NotClockwiseExistsClockwise : forall (A B : Point) (H : A <> B),
 	~Clockwise A B (ExistsClockwise A B H).
 Proof.
-	intros; destructExistsClockwise ipattern:A ipattern:B ipattern:H.
+	intros; destructExistsClockwise ipattern:(A) ipattern:(B) ipattern:(H).
 	intro; elim H3; immediate2.
 Qed.
 
 Lemma ClockwiseExistsClockwise : forall (A B : Point) (H : A <> B),
 	Clockwise A (ExistsClockwise A B H) B.
 Proof.
-	intros; by4Cases1 ipattern:A ipattern:B (ExistsClockwise A B H).
+	intros; by4Cases1 ipattern:(A) ipattern:(B) (ExistsClockwise A B H).
 	 elim (NotClockwiseExistsClockwise A B H); immediate2.
 	 immediate2.
 	 elim (NotOpenRayABExistsClockwise A B H); immediate2.

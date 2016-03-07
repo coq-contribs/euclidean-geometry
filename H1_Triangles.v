@@ -131,9 +131,9 @@ Lemma ASATClockwiseCongruent : forall A1 B1 C1 A2 B2 C2 : Point,
 	TCongruent (Tr A1 B1 C1) (Tr A2 B2 C2).
 Proof.
 	intros.
-	setCircle0 A1 A2 B2 ipattern:gamma1.
-	setCircle0 C1 C2 B2 ipattern:gamma2.
-	setIntersectionCircles3 gamma1 gamma2 ipattern:B3.
+	setCircle0 A1 A2 B2 ipattern:(gamma1).
+	setCircle0 C1 C2 B2 ipattern:(gamma2).
+	setIntersectionCircles3 gamma1 gamma2 ipattern:(B3).
 	 since6 (TriangleSpec A2 B2 C2 B2 A2 C2).
 	  simplCircle2; step6 H3.
 	 since6 (TCongruent (Tr A1 B3 C1) (Tr A2 B2 C2)).

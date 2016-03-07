@@ -17,7 +17,7 @@ Lemma OpenRayDistinct : forall A B C : Point,
 	A <> B -> OpenRay A B C -> A <> C.
 Proof.
 	intros.
-	setClockwise A B H ipattern:D.
+	setClockwise A B H ipattern:(D).
 	from2 H0 (Clockwise A D C).
 Qed.
 
@@ -25,7 +25,7 @@ Lemma BetweenDistinctBC : forall A B C : Point,
 	Between A B C -> B <> C.
 Proof.
 	intros A B C (H, H0).
-	setClockwise A B H ipattern:D.
+	setClockwise A B H ipattern:(D).
 	from2 H0 (Clockwise B D C).
 Qed.
 
@@ -104,7 +104,7 @@ Lemma EquiOrientedDistinct : forall A B C D : Point,
 	C <> D.
 Proof.
 	intros.
-	setClockwise B A (sym_not_eq H) ipattern:E.
+	setClockwise B A (sym_not_eq H) ipattern:(E).
 	from2 H0 (Clockwise C D E).
 Qed.
 
@@ -147,7 +147,7 @@ Lemma OpenRaysBetween : forall A B C D E : Point,
 Proof.
 	canonize1.
 	 subst.
-	   setClockwise B A H2 ipattern:F.
+	   setClockwise B A H2 ipattern:(F).
 	   elim (NotClockwiseAAB A F); step2 H.
 	 step2 H1.
 	   step2 H3.
@@ -205,10 +205,10 @@ Proof.
 	 intro H1; decompose [or] (FourthPoint B A C D H1).
 	  contradict1 H0 H2.
 	  contradict1 H H3.
-	  setLine0 A B ipattern:ab.
+	  setLine0 A B ipattern:(ab).
 	   immediate2.
-	   setCircle0 D A B ipattern:gamma.
-	     setInterDiameter ab gamma ipattern:A'.
+	   setCircle0 D A B ipattern:(gamma).
+	     setInterDiameter ab gamma ipattern:(A').
 	     elim (NotClockwiseABA A' D).
 	     apply (ChangeSide _ _ _ _ Heo).
 	    apply (DistinctEqDistanceDistinct A B D A'); immediate2.

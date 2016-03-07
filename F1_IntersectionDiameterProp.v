@@ -15,7 +15,7 @@ Lemma EquiOrientedInterDiameterPoint : forall (l : Line) (c : Circle) (H : Diame
 	EquiOriented (Center c) (InterDiameterPoint l c H) (LineA l) (LineB l).
 Proof.
 	intros; unfold InterDiameterPoint in |- *.
-	setInterDiameter l c ipattern:M.
+	setInterDiameter l c ipattern:(M).
 	exact Heo.
 Qed.
 
@@ -23,7 +23,7 @@ Lemma OnCircleInterDiameterPoint : forall (l : Line) (c : Circle) (H : Diameter 
 	OnCircle c (InterDiameterPoint l c H).
 Proof.
 	intros; unfold InterDiameterPoint in |- *.
-	setInterDiameter l c ipattern:M.
+	setInterDiameter l c ipattern:(M).
 	exact Hoc.
 Qed.
 
@@ -31,7 +31,7 @@ Lemma OnLineInterDiameterPoint : forall (l : Line) (c : Circle) (H : Diameter l 
 	OnLine l (InterDiameterPoint l c H).
 Proof.
 	intros; unfold InterDiameterPoint in |- *.
-	setInterDiameter l c ipattern:M.
+	setInterDiameter l c ipattern:(M).
 	destruct l; simplLine1.
 	step4 Heo.
 	simplCircle2.
@@ -42,7 +42,7 @@ Lemma EqDistanceInterDiameterPoint : forall (l : Line) (c : Circle) (H : Diamete
 	Distance (Center c) (InterDiameterPoint l c H) = Radius c.
 Proof.
 	intros; unfold InterDiameterPoint in |- *.
-	setInterDiameter l c ipattern:M.
+	setInterDiameter l c ipattern:(M).
 	destruct c; simplCircle2.
 	exact Hoc.
 Qed.
@@ -52,7 +52,7 @@ Lemma UniqueInterDiameterPoint : forall (l : Line) (c : Circle) (H : Diameter l 
 	M = InterDiameterPoint l c H.
 Proof.
 	intros; unfold InterDiameterPoint in |- *.
-	setInterDiameter l c ipattern:N.
+	setInterDiameter l c ipattern:(N).
 	apply sym_eq; apply Hun; intuition.
 Qed.
 

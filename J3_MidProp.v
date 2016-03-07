@@ -58,7 +58,7 @@ Proof.
 	pose (C := LineA (MidLine A B H)); fold C in H1, H2.
 	pose (D := LineB (MidLine A B H)); fold D in H1, H2.
 	by3Cases1 C D M.
-	 setFourPointsInter4 C D M B ipattern:E.
+	 setFourPointsInter4 C D M B ipattern:(E).
 	   elim (ClockwiseNotClockwise _ _ _ H3).
 	   apply ClockwiseBCA; apply (TwoSidesLine A E).
 	  immediate8.
@@ -73,7 +73,7 @@ Proof.
 	    immediate8.
 	   step8 H7.
 	   immediate8.
-	 setFourPointsInter4 C D A M ipattern:E.
+	 setFourPointsInter4 C D A M ipattern:(E).
 	   elim (ClockwiseNotClockwise _ _ _ H4).
 	   apply ClockwiseBCA; apply (TwoSidesLine B E).
 	  immediate8.

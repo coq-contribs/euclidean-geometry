@@ -48,7 +48,7 @@ Lemma  EqAngleOpenRay1 : forall A B C D : Point,
 	OpenRay A C D.
 Proof.
 	intros.
-	setMarkSegmentPoint5 A D A C ipattern:E.
+	setMarkSegmentPoint5 A D A C ipattern:(E).
 	 apply (CongruentAngleDistinctED C A B D A B H).
 	 since5 (C = E).
 	  apply (EqAngleUniquePointSide1 A B C E).
@@ -73,7 +73,7 @@ Lemma  EqAngleOpenRay2 : forall A B C D : Point,
 	OpenRay A C D.
 Proof.
 	intros.
-	setMarkSegmentPoint5 A D A C ipattern:E.
+	setMarkSegmentPoint5 A D A C ipattern:(E).
 	 apply (CongruentAngleDistinctEF B A C B A D H).
 	 since5 (C = E).
 	  apply (EqAngleUniquePointSide2 A B C E).

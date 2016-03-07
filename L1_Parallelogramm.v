@@ -151,7 +151,7 @@ Lemma  ParallelogrammVertex4 : forall A B C : Point, forall  (Hac: A <> C) (Hbk 
 	Parallelogramm A B C (SymmetricPoint B (MidPoint A C Hac) Hbk).
 Proof.
 	intros.
-	setSymmetricPoint5 B (MidPoint A C Hac) ipattern:D; fold D in |- *.
+	setSymmetricPoint5 B (MidPoint A C Hac) ipattern:(D); fold D in |- *.
 	assert (Hbd : B <> D).
 	 immediate10.
 	 apply (Pllgm A B C D Hac Hbd).

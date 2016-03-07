@@ -87,10 +87,10 @@ Proof.
 	by3SegmentCases1 H0.
 	 step8 H4.
 	 elim H.
-	   setMarkSegmentPoint5 (MidPoint A B H) B (MidPoint A B H) B ipattern:C.
+	   setMarkSegmentPoint5 (MidPoint A B H) B (MidPoint A B H) B ipattern:(C).
 	   step8 C.
 	 elim H.
-	   setMarkSegmentPoint5 (MidPoint A B H) A (MidPoint A B H) A ipattern:C.
+	   setMarkSegmentPoint5 (MidPoint A B H) A (MidPoint A B H) A ipattern:(C).
 	   step8 C.
 Qed.
 

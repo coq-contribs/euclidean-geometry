@@ -27,7 +27,7 @@ Lemma InterDiameterPointDef : forall (l : Line) (c : Circle),
 	{M : Point |  f M /\ Unicity M f}.
 Proof.
 	intros.
-	setInterDiameter1 l c ipattern:P.
+	setInterDiameter1 l c ipattern:(P).
 	 exists P; unfold f in |- *; simpl in |- *; intuition.
 	  apply OnCircle1OnCircle; trivial.
 	  unfold Unicity in *; intuition.

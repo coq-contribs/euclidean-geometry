@@ -37,20 +37,20 @@ Proof.
 	intros.
 	inversion H; inversion H0.
 	by3Cases1 A B B0.
-	 setStrictParallelogramm11 A B B0 ipattern:E.
+	 setStrictParallelogramm11 A B B0 ipattern:(E).
 	   DestructSP11 H12.
 	   since12 (RightAngle B B0 E).
 	  as12 (Supplement B B0 E A B B0).
 	    left; step12 H.
 	  from12 H0 (RightAngle B B0 C0).
-	    setLine0 A B ipattern:d4.
+	    setLine0 A B ipattern:(d4).
 	   immediate12.
 	   since12 (EqLine d1 d4).
 	    step12 (A, B).
 	    step12 H18.
-	      setLine0 E B0 ipattern:d5.
+	      setLine0 E B0 ipattern:(d5).
 	     immediate12.
-	     setLine0 C0 B0 ipattern:d6.
+	     setLine0 C0 B0 ipattern:(d6).
 	      immediate12.
 	      since12 (EqLine d5 d6).
 	       unfold d5 in |- *; unfold d6 in |- *; apply (RightRightEqMLine E B0 B).
@@ -59,19 +59,19 @@ Proof.
 	       from12 (B0, C0) (EqLine d3 d6).
 	         step12 H22.
 	         step12 H21.
-	 setStrictParallelogramm11 B0 B A ipattern:E.
+	 setStrictParallelogramm11 B0 B A ipattern:(E).
 	   since12 (RightAngle B B0 E).
 	  as12 (Supplement B B0 E A B B0).
 	    left; step12 H.
 	  from12 H0 (RightAngle B B0 C0).
-	    setLine0 A B ipattern:d4.
+	    setLine0 A B ipattern:(d4).
 	   immediate12.
 	   since12 (EqLine d1 d4).
 	    step12 (A, B).
 	    step12 H16.
-	      setLine0 E B0 ipattern:d5.
+	      setLine0 E B0 ipattern:(d5).
 	     immediate12.
-	     setLine0 C0 B0 ipattern:d6.
+	     setLine0 C0 B0 ipattern:(d6).
 	      immediate12.
 	      since12 (EqLine d5 d6).
 	       unfold d5 in |- *; unfold d6 in |- *; apply (RightRightEqMLine E B0 B).
@@ -85,9 +85,9 @@ Proof.
 	   from12 H13 (B0 = B).
 	   subst.
 	   from12 H0 (RightAngle C B C0).
-	   setLine0 C0 B ipattern:d4.
+	   setLine0 C0 B ipattern:(d4).
 	  immediate12.
-	  setLine0 A B ipattern:d5.
+	  setLine0 A B ipattern:(d5).
 	   immediate12.
 	   since12 (EqLine d4 d5).
 	    unfold d4 in |- *; unfold d5 in |- *; apply (RightRightEqMLine C0 B C).
@@ -120,7 +120,7 @@ Lemma PerpendicularParallelPerpendicular : forall d1 d2 d3 : Line,
 	Perpendicular d2 d3.
 Proof.
 	intros.
-	setInterLines d3 d2 ipattern:A.
+	setInterLines d3 d2 ipattern:(A).
 	 apply (ParallelSecant d1); immediate12.
 	 pose (d4 := PerpendicularUp d2 A Hol0).
 	   assert (H1 := PerpendicularUpPerpendicular d2 A Hol0); fold d4 in H1.

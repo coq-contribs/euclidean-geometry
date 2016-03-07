@@ -11,11 +11,11 @@ Definition Parallel : forall l1 : Line, forall A : Point,
 	~OnLine l1 A -> Line.
 Proof.
 	destruct l1 as (B, C, H); simpl in |- *; intros.
-	setMidPoint9 B A ipattern:K.
-	setSymmetricPoint5 C K ipattern:D.
+	setMidPoint9 B A ipattern:(K).
+	setSymmetricPoint5 C K ipattern:(D).
 	 contrapose0 H0.
 	   step12 H0.
-	 setLine0 A D ipattern:l2.
+	 setLine0 A D ipattern:(l2).
 	  contrapose0 H0.
 	    since12 (A <> K).
 	    as12 (Collinear B K A).
@@ -39,20 +39,20 @@ Ltac destructParallel l1 A H K D :=
 Lemma LineAParallel : forall l1 : Line, forall A : Point, forall H : ~OnLine l1 A,
 	A = LineA (Parallel l1 A H).
 Proof.
-	intros; destructParallel ipattern:l1 ipattern:A ipattern:H ipattern:K ipattern:D; immediate12.
+	intros; destructParallel ipattern:(l1) ipattern:(A) ipattern:(H) ipattern:(K) ipattern:(D); immediate12.
 Qed.
 
 Lemma OnLineAParallel : forall l1 : Line, forall A : Point, forall H : ~OnLine l1 A,
 	OnLine (Parallel l1 A H) A.
 Proof.
-	intros; destructParallel ipattern:l1 ipattern:A ipattern:H ipattern:K ipattern:D; immediate12.
+	intros; destructParallel ipattern:(l1) ipattern:(A) ipattern:(H) ipattern:(K) ipattern:(D); immediate12.
 Qed.
 
 Lemma ParallelClockwiseParallelogramm : forall l1 : Line, forall A : Point, forall H : ~OnLine l1 A,
 	Clockwise (LineA l1) (LineB l1) A ->
 	Parallelogramm (LineA l1) (LineB l1)  (LineA (Parallel l1 A H)) (LineB (Parallel l1 A H)).
 Proof.
-	intros l1 A H Hc; destructParallel l1 A H ipattern:K ipattern:D.
+	intros l1 A H Hc; destructParallel l1 A H ipattern:(K) ipattern:(D).
 	unfold D, K in |- *; immediate12.
 Qed.
 
@@ -60,7 +60,7 @@ Lemma ParallelAntiClockwiseParallelogramm : forall l1 : Line, forall A : Point, 
 	Clockwise (LineB l1) (LineA l1) A ->
 	Parallelogramm (LineB l1) (LineA l1)  (LineB (Parallel l1 A H)) (LineA (Parallel l1 A H)).
 Proof.
-	intros l1 A H Hc; destructParallel l1 A H ipattern:K ipattern:D.
+	intros l1 A H Hc; destructParallel l1 A H ipattern:(K) ipattern:(D).
 	unfold D, K in |- *; immediate12.
 Qed.
 
@@ -89,7 +89,7 @@ Lemma OnParallelVertexP4 : forall d : Line, forall A : Point, forall H : ~OnLine
 	forall Hc : Clockwise (LineA d)  (LineB d) A,
 	LineB (Parallel d A H) = StrictPVertex4 (LineA d)  (LineB d) A Hc.
 Proof.
-	intros; destructParallel ipattern:d ipattern:A ipattern:H ipattern:K ipattern:D.
+	intros; destructParallel ipattern:(d) ipattern:(A) ipattern:(H) ipattern:(K) ipattern:(D).
 	byDefEqPoint11.
 	assert (Parallelogramm B C A D).
 	 unfold D, K in |- *; immediate12.
@@ -100,7 +100,7 @@ Lemma OnParallelOppVertexP4 : forall d : Line, forall A : Point, forall H : ~OnL
 	forall Hc : Clockwise A (LineB d)  (LineA d),
 	LineB (Parallel d A H) = StrictPVertex4 A (LineB d)  (LineA d) Hc.
 Proof.
-	intros; destructParallel ipattern:d ipattern:A ipattern:H ipattern:K ipattern:D.
+	intros; destructParallel ipattern:(d) ipattern:(A) ipattern:(H) ipattern:(K) ipattern:(D).
 	byDefEqPoint11.
 	assert (Parallelogramm A C B D).
 	 unfold D, K in |- *; immediate12.

@@ -224,7 +224,7 @@ Lemma ParallelSecant : forall d0 d1 d2 : Line,
 	SecantLines d1 d2.
 Proof.
 	intros.
-	setInterLinesPoint4 d0 d2 ipattern:A.
+	setInterLinesPoint4 d0 d2 ipattern:(A).
 	destruct (OnOrNotOnLine d1 A).
 	 from12 H (EqLine d0 d1).
 	   step12 H4.

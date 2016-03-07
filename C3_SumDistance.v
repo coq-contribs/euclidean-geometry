@@ -7,7 +7,7 @@ Section SUM_OF_DISTANCES.
 Definition DistancePlus : forall M N : Point, Point.
 Proof.
 	intros.
-	setCircle0 (Distance Oo M) Oo N ipattern:gamma.
+	setCircle0 (Distance Oo M) Oo N ipattern:(gamma).
 	destruct (InterDiameterPointDef lineOoUu gamma) as (P, ((H1, H2), H3)).
 	 assert (H := IsDistanceDistance Oo M).
 	   unfold IsDistance in H; simpl in |- *; immediate1.
@@ -28,7 +28,7 @@ Lemma IsDistanceDistancePlus : forall M N : Point,
 	IsDistance (DistancePlus M N).
 Proof.
 	intros.
-	destructDistancePlus M N ipattern:P.
+	destructDistancePlus M N ipattern:(P).
 	unfold IsDistance in |- *; apply (EquiOrientedClosedRayClosedRay _ _ _ _ H0).
 	fold (IsDistance (Distance Oo M)) in |- *; apply IsDistanceDistance.
 Qed.
@@ -46,7 +46,7 @@ Lemma IsDistanceSegmentDistancePlus : forall M N : Point,
 	Segment Oo (DistancePlus M N) M.
 Proof.
 	intros.
-	destructDistancePlus M N ipattern:P.
+	destructDistancePlus M N ipattern:(P).
 	apply (EquiOrientedClosedRaySegment Oo Uu).
 	 rewrite (IsDistanceEqDistance M H) in H1; immediate1.
 	 fold (IsDistance M) in |- *; trivial.
@@ -58,7 +58,7 @@ Lemma IsDistancePlusEqDistance : forall M N : Point,
 	Distance M (DistancePlus M N) = N.
 Proof.
 	intros.
-	destructDistancePlus M N ipattern:P.
+	destructDistancePlus M N ipattern:(P).
 	rewrite (IsDistanceEqDistance M H) in H1; rewrite (IsDistanceEqDistance N H0) in H1; immediate1.
 Qed.
 
@@ -66,7 +66,7 @@ Lemma DistancePlusOoM : forall M N : Point,
 	DistancePlus M N = DistancePlus (Distance Oo M) N.
 Proof.
 	intros.
-	destructDistancePlus M N ipattern:P.
+	destructDistancePlus M N ipattern:(P).
 	destruct (InterDiameterPointDef lineOoUu (Compass (Distance Oo (Distance Oo M)) Oo N)) as (Q, ((H2, H3), H4)); simpl in *.
 	apply H1; split.
 	 rewrite <- (EqDistanceDistance Oo M); trivial.
@@ -77,7 +77,7 @@ Lemma DistancePlusOoN : forall M N : Point,
 	DistancePlus M N = DistancePlus M (Distance Oo N).
 Proof.
 	intros.
-	destructDistancePlus M N ipattern:P.
+	destructDistancePlus M N ipattern:(P).
 	destruct (InterDiameterPointDef lineOoUu (Compass (Distance Oo M) Oo (Distance Oo N))) as (Q, ((H2, H3), H4)); simpl in *.
 	apply H1; split.
 	 rewrite H2; apply EqDistanceDistance.
@@ -175,7 +175,7 @@ Qed.
 Lemma DistancePlusNeutralLeft : forall M : Point,
 	DistancePlus Oo M = Distance Oo M.
 Proof.
-	intros; destructDistancePlus Oo ipattern:M ipattern:N.
+	intros; destructDistancePlus Oo ipattern:(M) ipattern:(N).
 	rewrite <- H; rewrite NullDistance.
 	apply sym_eq; apply IsDistanceEqDistance.
 	rewrite NullDistance in H0; immediate1.

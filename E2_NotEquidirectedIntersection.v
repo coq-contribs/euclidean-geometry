@@ -55,9 +55,9 @@ Definition NotEquiDirectedInterPoint : forall A B C D,
 	~EquiDirected A B C D -> Point.
 Proof.
 	intros.
-	setLine0 A B ipattern:ab.
+	setLine0 A B ipattern:(ab).
 	 apply (NotEquidirectedDistinctAB _ _ _ _ H).
-	 setLine0 C D ipattern:cd.
+	 setLine0 C D ipattern:(cd).
 	  apply (NotEquidirectedDistinctCD _ _ _ _ H).
 	  assert (SecantLines ab cd).
 	  immediate1.

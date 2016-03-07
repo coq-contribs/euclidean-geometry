@@ -12,9 +12,9 @@ Definition ThirdVertex : forall A B C D E : Point,
 	Point.
 Proof.
 	intros.
-	setCircle0 D A C ipattern:gamma.
-	setCircle0 E B C ipattern:gamma'.
-	setInterCircles gamma gamma' ipattern:F.
+	setCircle0 D A C ipattern:(gamma).
+	setCircle0 E B C ipattern:(gamma').
+	setInterCircles gamma gamma' ipattern:(F).
 	 simplCircle2; step6 H0.
 	 simplCircle2.
 	   assert (TriangleSpec A C B C A B).

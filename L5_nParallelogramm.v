@@ -14,7 +14,7 @@ Lemma StrictParallelogrammBECD : forall A B C D E : Point,
 	Distance A B = Distance B E ->
 	StrictParallelogramm B E C D.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	apply EquiDistantStrictParallelogramm.
 	 step10 H0.
 	 step10 (StrictParallelogrammClockwiseBCD A B C D H).
@@ -32,7 +32,7 @@ Lemma StrictParallelogrammEACD : forall A B C D E : Point,
 	Distance E A = Distance A B ->
 	StrictParallelogramm E A C D.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	apply StrictParallelogrammPerm.
 	apply EquiDistantStrictParallelogramm.
 	 step10 H0.

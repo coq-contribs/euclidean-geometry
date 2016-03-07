@@ -62,7 +62,7 @@ Definition PerpendicularPoint : forall l1 l2 : Line,
 	Perpendicular l1 l2 -> Point.
 Proof.
 	intros.
-	setInterLinesPoint4 l1 l2 ipattern:M.
+	setInterLinesPoint4 l1 l2 ipattern:(M).
 	 apply PerpendicularSecant; immediate11.
 	 exact M.
 Defined.

@@ -11,8 +11,8 @@ Definition AddSegmentPoint (A B C D E : Point) :
 	A <> B -> Collinear A B C -> Point.
 Proof.
 	intros.
-	setLine0 A B ipattern:ab.
-	setCircle0 C D E ipattern:g.
+	setLine0 A B ipattern:(ab).
+	setCircle0 C D E ipattern:(g).
 	assert (Diameter ab g).
 	 simpl in |- *; immediate4.
 	 exact (InterDiameterPoint ab g H1).

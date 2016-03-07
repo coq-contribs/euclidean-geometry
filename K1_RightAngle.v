@@ -16,8 +16,8 @@ Definition VvDef : {Vv : Point |
 	Distance Oo Vv = Distance Oo Uu /\ 
 	Collinear (ExistsClockwise Uu uU DistinctUuuU)  (ExistsClockwise uU Uu (sym_not_eq DistinctUuuU)) Vv}.
 Proof.
-	pose DistinctUuuU; setMidLine9 Uu uU ipattern:yOy.
-	setInterDiameterPoint5 yOy uCircle ipattern:Vv.
+	pose DistinctUuuU; setMidLine9 Uu uU ipattern:(yOy).
+	setInterDiameterPoint5 yOy uCircle ipattern:(Vv).
 	 assert (H2 : OnLine yOy Oo).
 	  step9 yOy; immediate9.
 	  immediate9.

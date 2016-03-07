@@ -170,7 +170,7 @@ Lemma StrictParallelogrammAlternateAngles : forall A B C D E : Point,
 	CongruentAngle D A B E B A.
 Proof.
 	intros.
-	setSymmetricPoint5 A B ipattern:G.
+	setSymmetricPoint5 A B ipattern:(G).
 	 apply (StrictParallelogrammDistinctAB A B C D H).
 	 since10 (OpposedAngles B E A C G).
 	  since10 (CongruentAngle E B A C B G).
@@ -348,7 +348,7 @@ Lemma ParallelogrammDABSupplementAngleABC : forall A B C D : Point,
 	Supplement D A B A B C.
 Proof.
 	intros.
-	setSymmetricPoint5 A B ipattern:G.
+	setSymmetricPoint5 A B ipattern:(G).
 	since10 (CongruentAngle D A B C B G).
 	 assert (H4 := sym_not_eq (ParallelogrammDistinctBCDistinctDA A B C D H H1)).
 	   apply (ParallelogrammExteriorAngles A B C D G H H4 H3).
@@ -453,7 +453,7 @@ Lemma SupplementParallelogramm : forall A B C D : Point,
 	StrictParallelogramm A B C D.
 Proof.
 	intros.
-	setSymmetricPoint5 D C ipattern:E.
+	setSymmetricPoint5 D C ipattern:(E).
 	since10 (StrictParallelogramm A B E C).
 	 apply CongruentAnglesParallelogramm.
 	  immediate10.

@@ -76,7 +76,7 @@ Proof.
 	  apply (StrictParallelogrammDistinctCD A B C D H).
 	  assert (Hae : A <> E).
 	   step10 H2.
-	   setMidPoint9 A C ipattern:K.
+	   setMidPoint9 A C ipattern:(K).
 	     since10 (PCenter A B C D H0 = K).
 	    rewrite (PCenterMidPoint A B C D H0 H3); immediate10.
 	    generalize Hek; rewrite H6; clear Hek; intro Hek.
@@ -84,7 +84,7 @@ Proof.
 	      rewrite H6 in H7.
 	      assert (H8 := StrictParallelogrammClockwiseCDK A B C D H); simpl in H8.
 	      rewrite H6 in H8.
-	      setSymmetricPoint5 E K ipattern:F; fold F in |- *.
+	      setSymmetricPoint5 E K ipattern:(F); fold F in |- *.
 	      assert (Hef : E <> F).
 	     immediate10.
 	     since10 (Parallelogramm A E C F).
@@ -122,7 +122,7 @@ Proof.
 	   apply sym_not_eq; apply (StrictParallelogrammDistinctCD A B C D H).
 	   assert (Hbe : B <> E).
 	    step10 H2.
-	    setMidPoint9 B D ipattern:K.
+	    setMidPoint9 B D ipattern:(K).
 	      since10 (PCenter A B C D H0 = K).
 	     rewrite (PCenterMidPoint A B C D H0 Hac); immediate10.
 	     generalize Hek; rewrite H6; clear Hek; intro Hek.
@@ -130,7 +130,7 @@ Proof.
 	       rewrite H6 in H7.
 	       assert (H8 := StrictParallelogrammClockwiseCDK A B C D H).
 	       simpl in H8; rewrite H6 in H8.
-	       setSymmetricPoint5 E K ipattern:F; fold F in |- *.
+	       setSymmetricPoint5 E K ipattern:(F); fold F in |- *.
 	       assert (Hfe : F <> E).
 	      immediate10.
 	      since10 (Parallelogramm B F D E).
@@ -157,16 +157,16 @@ Qed.
 Lemma StrictParallelogrammEquiOriented : forall A B C D : Point, 
 	StrictParallelogramm A B C D  ->  EquiOriented B A C D.
 Proof.
-	unfold EquiOriented in |- *; intros; DestructSP11 ipattern:H.
+	unfold EquiOriented in |- *; intros; DestructSP11 ipattern:(H).
 	assert (Hcd : C <> D).
 	 apply (StrictParallelogrammDistinctCD A B C D H).
 	 since10 (Between A (PCenter A B C D H1) C).
 	  apply (PCenterBetweenAC A B C D H1).
 	  since10 (Between B (PCenter A B C D H1) D).
 	   apply (PCenterBetweenBD A B C D H1).
-	   setFourPointsInter4 A B M (PCenter A B C D H1) ipattern:J.
+	   setFourPointsInter4 A B M (PCenter A B C D H1) ipattern:(J).
 	    apply (StrictParallelogrammClockwiseABK A B C D H).
-	    setSymmetricPoint5 J (PCenter A B C D H1) ipattern:L.
+	    setSymmetricPoint5 J (PCenter A B C D H1) ipattern:(L).
 	      from10 H10 (Between L (PCenter A B C D H1) M).
 	     by2Cases1 H6.
 	      since10 (OpenRay C D L).
@@ -188,7 +188,7 @@ Qed.
 Lemma ParallelogrammEquiDirected : forall A B C D : Point, 
 	Parallelogramm A B C D ->  EquiDirected A B C D.
 Proof.
-	intros; by3Cases1 ipattern:A ipattern:B (PCenter A B C D H).
+	intros; by3Cases1 ipattern:(A) ipattern:(B) (PCenter A B C D H).
 	 since10 (EquiOriented B A C D).
 	  since10 (StrictParallelogramm A B C D).
 	   apply (ClockwiseABKStrictParallelogramm A B C D H); immediate10.

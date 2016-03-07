@@ -75,11 +75,11 @@ Lemma FourPointsSecantLines : forall d1 d2 : Line, forall A B C D: Point,
 Proof.
 	intros; intro.
 	elim (FourPointsSecantLine A B C D H3 H4).
-	setLine0 A B ipattern:d3.
+	setLine0 A B ipattern:(d3).
 	 immediate11.
 	 assert (EqLine d1 d3).
 	  apply EqLineDef; immediate11.
-	  setLine0 C D ipattern:d4.
+	  setLine0 C D ipattern:(d4).
 	   step11 H3.
 	   assert (EqLine d2 d4).
 	    apply EqLineDef; immediate11.

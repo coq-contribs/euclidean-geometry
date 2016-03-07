@@ -7,8 +7,8 @@ Section DISTANCE.
 
 Definition Distance (A B : Point) : Point.
 Proof.
-	setCircle0 Oo A B ipattern:c.
-	setInterDiameter1 lineOoUu c ipattern:M.
+	setCircle0 Oo A B ipattern:(c).
+	setInterDiameter1 lineOoUu c ipattern:(M).
 	 immediate1.
 	 exact M.
 Defined.
@@ -40,20 +40,20 @@ Qed.
 
 Lemma IsDistanceDistance : forall A B : Point, IsDistance (Distance A B).
 Proof.
-	intros; destructDistance ipattern:A ipattern:B ipattern:AB; simpl in *.
+	intros; destructDistance ipattern:(A) ipattern:(B) ipattern:(AB); simpl in *.
 	unfold IsDistance in |- *; immediate1.
 Qed.
 
 Lemma EquiDistantDistance : forall A B : Point, EquiDistant Oo (Distance A B) A B.
 Proof.
-	intros; destructDistance ipattern:A ipattern:B ipattern:AB; simpl in *.
+	intros; destructDistance ipattern:(A) ipattern:(B) ipattern:(AB); simpl in *.
 	trivial.
 Qed.
 
 Lemma DistanceEq : forall A B C D : Point,
 	EquiDistant A B C D -> Distance A B = Distance C D.
 Proof.
-	intros; destructDistance ipattern:A ipattern:B ipattern:AB; destructDistance ipattern:C ipattern:D ipattern:CD; simpl in *.
+	intros; destructDistance ipattern:(A) ipattern:(B) ipattern:(AB); destructDistance ipattern:(C) ipattern:(D) ipattern:(CD); simpl in *.
 	apply H2; split.
 	 apply (EquiDistantRec C D).
 	  apply EquiDistantSym; trivial.
@@ -76,7 +76,7 @@ Qed.
 
 Lemma NullDistance : forall A : Point, Distance A A = Oo.
 Proof.
-	intros; destructDistance ipattern:A ipattern:A ipattern:AA; simpl in *.
+	intros; destructDistance ipattern:(A) ipattern:(A) ipattern:(AA); simpl in *.
 	apply H1; split.
 	 apply EquiDistantAABB.
 	 immediate1.
@@ -92,9 +92,9 @@ Lemma DistinctEqDistanceDistinct : forall A B C D : Point,
 	A <> B -> Distance A B = Distance C D -> C <> D.
 Proof.
 	intros.
-	setLine0 A B ipattern:ab.
-	setCircle0 A C D ipattern:g.
-	setInterDiameter1 ab g ipattern:E.
+	setLine0 A B ipattern:(ab).
+	setCircle0 A C D ipattern:(g).
+	setInterDiameter1 ab g ipattern:(E).
 	 immediate1.
 	 intro; elim H.
 	   rewrite <- (Hun A).
@@ -118,7 +118,7 @@ Lemma IsDistanceEqDistance : forall d : Point,
 	IsDistance d ->
 	Distance Oo d = d.
 Proof.
-	intros; destructDistance Oo ipattern:d ipattern:dd.
+	intros; destructDistance Oo ipattern:(d) ipattern:(dd).
 	apply H2; split.
 	 simpl in |- *; apply EquiDistantRefl.
 	 unfold IsDistance in H; immediate1.

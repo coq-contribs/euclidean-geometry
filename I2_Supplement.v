@@ -99,11 +99,11 @@ Proof.
 	 immediate7.
 	 assert (Had : A <> D).
 	  immediate7.
-	  setAngle6 B A C ipattern:alpha.
-	    setAngle6 C A D ipattern:beta.
-	    setMarkSegmentPoint5 A B Oo Uu ipattern:b; fold b in |- *.
-	    setMarkSegmentPoint5 A C Oo Uu ipattern:c; fold c in |- *.
-	    setMarkSegmentPoint5 A D Oo Uu ipattern:d; fold d in |- *.
+	  setAngle6 B A C ipattern:(alpha).
+	    setAngle6 C A D ipattern:(beta).
+	    setMarkSegmentPoint5 A B Oo Uu ipattern:(b); fold b in |- *.
+	    setMarkSegmentPoint5 A C Oo Uu ipattern:(c); fold c in |- *.
+	    setMarkSegmentPoint5 A D Oo Uu ipattern:(d); fold d in |- *.
 	    since7 (Between b A d).
 	   from7 H5 (OpenRay A D d).
 	      step7 H4.
@@ -138,7 +138,7 @@ Proof.
 	          step7 H12.
 	            step7 H10.
 	       apply (EqAngleSupplement B A C C A D Hab Hac Hac Had).
-	         destructAngle B A C Hab Hac ipattern:gamma.
+	         destructAngle B A C Hab Hac ipattern:(gamma).
 	         apply H15; repeat split.
 	        unfold Supplementary in |- *; immediate7.
 	        rewrite <- EqDistanceUuSupplementary.
@@ -165,7 +165,7 @@ Proof.
 	            step7 H10.
 	       apply SupplementSym.
 	         apply (EqAngleSupplement C A D B A C Hac Had Hab Hac).
-	         destructAngle C A D Hac Had ipattern:gamma.
+	         destructAngle C A D Hac Had ipattern:(gamma).
 	         apply H15; repeat split.
 	        unfold Supplementary in |- *; immediate7.
 	        rewrite <- EqDistanceUuSupplementary.
@@ -181,7 +181,7 @@ Lemma ClockwiseSupplementAnglesBetween : forall A B C D : Point,
 Proof.
 	intros.
 	inversion H1.
-	setOppSegmentPoint5 A B A D ipattern:E.
+	setOppSegmentPoint5 A B A D ipattern:(E).
 	since7 (Supplement C A E B A C).
 	 apply SupplementSym; apply BetweenSupplementAngles.
 	  immediate7.
@@ -204,7 +204,7 @@ Lemma AntiClockwiseSupplementAnglesBetween : forall A B C D : Point,
 Proof.
 	intros.
 	inversion H1.
-	setOppSegmentPoint5 A B A D ipattern:E.
+	setOppSegmentPoint5 A B A D ipattern:(E).
 	since7 (Supplement C A E B A C).
 	 apply SupplementSym; apply BetweenSupplementAngles.
 	  immediate7.
@@ -274,8 +274,8 @@ Lemma TriangleBetween : forall A B C I J K L M : Point,
 	Between J I M.
 Proof.
 	intros.
-	setMarkSegmentPoint5 I K A B ipattern:K'.
-	setMarkSegmentPoint5 I L B C ipattern:L'.
+	setMarkSegmentPoint5 I K A B ipattern:(K').
+	setMarkSegmentPoint5 I L B C ipattern:(L').
 	from7 2 (TCongruent (Tr I K' L') (Tr B A C)).
 	   from7 H7 (CongruentAngle L' I K' L I K).
 	   step7 H9; immediate7.
@@ -341,8 +341,8 @@ Proof.
 	   apply NullAngleOpenRay.
 	     step7 H2.
 	   contradict1 H0 H5.
-	 setMarkSegmentPoint5 I L B C ipattern:L'.
-	   setTCongruentClockwise7 B C A L' I ipattern:M.
+	 setMarkSegmentPoint5 I L B C ipattern:(L').
+	   setTCongruentClockwise7 B C A L' I ipattern:(M).
 	   from7 H10 (CongruentAngle B C A L I M).	
 	    step7 H6.
 	  apply SupplementSym;
@@ -361,8 +361,8 @@ Lemma TriangleSumClockwise : forall A B C I J K L M : Point,
 	Clockwise I L M.
 Proof.
 	intros.
-	setMarkSegmentPoint5 I L B C ipattern:L'.
-	setTCongruentClockwise7 B C A L' I ipattern:M'.
+	setMarkSegmentPoint5 I L B C ipattern:(L').
+	setTCongruentClockwise7 B C A L' I ipattern:(M').
 	 intro; from7 H1 (Collinear J I K).
 	  contradict1 H H8.
 	 since7 (Between J I M').

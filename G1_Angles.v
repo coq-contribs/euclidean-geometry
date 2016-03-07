@@ -10,10 +10,10 @@ Section ANGLES.
 Definition Angle (A B C : Point) : B <>A -> B <> C -> Point.
 Proof.
 	intros.
-	setMarkSegmentPoint5 B A Oo Uu ipattern:D.
-	setMarkSegmentPoint5 B C Oo Uu ipattern:E.
-	setCircle0 Uu D E ipattern:gamma.
-	setIntersectionCircles3 uCircle gamma ipattern:F.
+	setMarkSegmentPoint5 B A Oo Uu ipattern:(D).
+	setMarkSegmentPoint5 B C Oo Uu ipattern:(E).
+	setCircle0 Uu D E ipattern:(gamma).
+	setIntersectionCircles3 uCircle gamma ipattern:(F).
 	 simplCircle2; immediate5.
 	 assert (Hts : TriangleSpec B D D E B E).
 	  immediate5.
@@ -31,21 +31,21 @@ simpl in H1, H2, H3, H4).
 Lemma DistanceOoAngle : forall A B C : Point, forall Hba : B <> A, forall Hbc : B <> C,
 	Distance Oo (Angle A B C Hba Hbc) = Uu.
 Proof.
-	intros;  destructAngle ipattern:A ipattern:B ipattern:C ipattern:Hba ipattern:Hbc  ipattern:M.
+	intros;  destructAngle ipattern:(A) ipattern:(B) ipattern:(C) ipattern:(Hba) ipattern:(Hbc)  ipattern:(M).
 	immediate5.
 Qed.
 
 Lemma NotClockwiseAngle : forall A B C : Point, forall Hba : B <> A, forall Hbc : B <> C,
 	~Clockwise Uu  (Angle A B C Hba Hbc) Oo.
 Proof.
-	intros; destructAngle ipattern:A ipattern:B ipattern:C ipattern:Hba ipattern:Hbc  ipattern:M.
+	intros; destructAngle ipattern:(A) ipattern:(B) ipattern:(C) ipattern:(Hba) ipattern:(Hbc)  ipattern:(M).
 	immediate5.
 Qed.
 
 Lemma DistanceUuAngle : forall A B C : Point, forall Hba : B <> A, forall Hbc : B <> C,
 	Distance Uu (Angle A B C Hba Hbc) = Distance (MarkSegmentPoint B A Oo Uu Hba) (MarkSegmentPoint B C Oo Uu Hbc).
 Proof.
-	intros; destructAngle ipattern:A ipattern:B ipattern:C ipattern:Hba ipattern:Hbc  ipattern:M.
+	intros; destructAngle ipattern:(A) ipattern:(B) ipattern:(C) ipattern:(Hba) ipattern:(Hbc)  ipattern:(M).
 	immediate5.
 Qed.
 
@@ -72,7 +72,7 @@ Lemma EqAnglePoint : forall M : Point, forall Hu : Oo <> Uu, forall Hm : Oo <> M
 	IsAngle M ->
 	Angle Uu Oo M Hu Hm = M.
 Proof.
-	intros M Hu Hm (Hc, Hn);  destructAngle Uu Oo ipattern:M ipattern:Hu ipattern:Hm ipattern:N.
+	intros M Hu Hm (Hc, Hn);  destructAngle Uu Oo ipattern:(M) ipattern:(Hu) ipattern:(Hm) ipattern:(N).
 	apply H2; intuition.
 	rewrite <- (UniqueMarkSegmentPoint Oo Uu Oo Uu Hu Uu).
 	 rewrite <- (UniqueMarkSegmentPoint Oo M Oo Uu Hm M).
@@ -100,7 +100,7 @@ Proof.
 	intros.
 	destruct H0.
 	rewrite <- (EqAnglePoint alpha DistinctOoUu (IsAngleDistinctOo alpha H) H).
-	destructAngle Uu Oo alpha DistinctOoUu (IsAngleDistinctOo alpha H)  ipattern:gamma.
+	destructAngle Uu Oo alpha DistinctOoUu (IsAngleDistinctOo alpha H)  ipattern:(gamma).
 	apply H6; intuition.
 	step5 H1.
 	since5 (MarkSegmentPoint Oo Uu Oo Uu DistinctOoUu = Uu).
@@ -114,7 +114,7 @@ Lemma CongruentItself : forall (A B C D E : Point) (Hab : A<>B) (Hac : A <> C) (
 	OpenRay A B D -> OpenRay A C E ->
 	Angle B A C Hab Hac = Angle  E A D Hae Had.
 Proof.
-	intros;  destructAngle B A C Hab Hac ipattern:alpha.
+	intros;  destructAngle B A C Hab Hac ipattern:(alpha).
 	apply H4; intuition.
 	 assert (H5 := DistanceOoAngle E A D Hae Had); immediate5.
 	 assert (H5 := DistanceUuAngle E A D Hae Had); step5 H5.
@@ -338,12 +338,12 @@ Proof.
 	intros.
 	inversion H1.
 	generalize H2; clear H2.
-	destructAngle B A C Hba Hbc ipattern:alpha.
-	destructAngle E D F Hed Hef ipattern:beta.
-	setMarkSegmentPoint5 A B Oo Uu ipattern:B'.
-	setMarkSegmentPoint5 A C Oo Uu ipattern:C'.
-	setMarkSegmentPoint5 D E Oo Uu ipattern:E'.
-	setMarkSegmentPoint5 D F Oo Uu ipattern:F'.
+	destructAngle B A C Hba Hbc ipattern:(alpha).
+	destructAngle E D F Hed Hef ipattern:(beta).
+	setMarkSegmentPoint5 A B Oo Uu ipattern:(B').
+	setMarkSegmentPoint5 A C Oo Uu ipattern:(C').
+	setMarkSegmentPoint5 D E Oo Uu ipattern:(E').
+	setMarkSegmentPoint5 D F Oo Uu ipattern:(F').
 	intro; apply DistanceEq.
 	apply (EquiDistantAngle A C' B C D F' E F).
 	 step5 H13.
@@ -376,12 +376,12 @@ Lemma CongruentSSS : forall A B C D E F : Point,
 	CongruentAngle B A C E D F.
 Proof.
 	intros A B C D E F Hab Hac Hde Hdf H H0 H1; applyCongruentEqAngle .
-	destructAngle B A C Hab Hac ipattern:alpha.
-	destructAngle E D F Hde Hdf ipattern:beta.
-	setMarkSegmentPoint5 A B Oo Uu ipattern:B'.
-	setMarkSegmentPoint5 A C Oo Uu ipattern:C'.
-	setMarkSegmentPoint5 D E Oo Uu ipattern:E'.
-	setMarkSegmentPoint5 D F Oo Uu ipattern:F'.
+	destructAngle B A C Hab Hac ipattern:(alpha).
+	destructAngle E D F Hde Hdf ipattern:(beta).
+	setMarkSegmentPoint5 A B Oo Uu ipattern:(B').
+	setMarkSegmentPoint5 A C Oo Uu ipattern:(C').
+	setMarkSegmentPoint5 D E Oo Uu ipattern:(E').
+	setMarkSegmentPoint5 D F Oo Uu ipattern:(F').
 	apply H5; intuition.
 	rewrite H7; apply DistanceEq.
 	fold B' C' E' F' in |- *.
@@ -411,9 +411,9 @@ Proof.
 	intros.
 	inversion H2.
 	inversion H3.
-	setLine0 A B ipattern:ab.
-	setCircle0 A C D ipattern:gamma.
-	setInterDiameterPoint5 ab gamma ipattern:B'.
+	setLine0 A B ipattern:(ab).
+	setCircle0 A C D ipattern:(gamma).
+	setInterDiameterPoint5 ab gamma ipattern:(B').
 	assert (Hab' : A <> B').
 	 step5 H8.
 	 since5 (Distance A D = Distance C B').
@@ -424,8 +424,8 @@ Proof.
 	     rewrite <- H4; apply CongruentItself.
 	    step5 H7.
 	    immediate5.
-	  setLine0 A E ipattern:ae.
-	    setInterDiameterPoint5 ae gamma ipattern:E'.
+	  setLine0 A E ipattern:(ae).
+	    setInterDiameterPoint5 ae gamma ipattern:(E').
 	    assert (Hae' : A <> E').
 	   step5 H13.
 	   since5 (Distance A C = Distance D E').

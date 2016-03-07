@@ -11,9 +11,9 @@ Section MIDLINE.
 Definition MidLine (A B : Point) : A <> B -> Line.
 Proof.
 	intros.
-	setEquilateral7 A B ipattern:C.
-	setEquilateral7 B A ipattern:D.
-	setLine0 C D ipattern:m.
+	setEquilateral7 A B ipattern:(C).
+	setEquilateral7 B A ipattern:(D).
+	setLine0 C D ipattern:(m).
 	 step8 H0.
 	 exact m.
 Defined.
@@ -35,35 +35,35 @@ let m := fresh "m" in (
 Lemma EquilateralAMidLineAB : forall A B : Point, forall H : A <> B,
 	Equilateral (Tr A (LineA (MidLine A B H)) B).
 Proof.
-	intros; destructMidLine ipattern:A ipattern:B ipattern:H.
+	intros; destructMidLine ipattern:(A) ipattern:(B) ipattern:(H).
 	 immediate8.
 Qed.
 
 Lemma EquilateralBMidLineBA : forall A B : Point, forall H : A <> B,
 	Equilateral (Tr B (LineB (MidLine A B H)) A).
 Proof.
-	intros; destructMidLine ipattern:A ipattern:B ipattern:H.
+	intros; destructMidLine ipattern:(A) ipattern:(B) ipattern:(H).
 	 immediate8.
 Qed.
 
 Lemma ClockwiseAMidLineAB : forall A B : Point, forall H : A <> B,
 	Clockwise  A (LineA (MidLine A B H)) B.
 Proof.
-	intros; destructMidLine ipattern:A ipattern:B ipattern:H.
+	intros; destructMidLine ipattern:(A) ipattern:(B) ipattern:(H).
 	 immediate8.
 Qed.
 
 Lemma ClockwiseBMidLineBA : forall A B : Point, forall H : A <> B,
 	Clockwise B (LineB (MidLine A B H)) A.
 Proof.
-	intros; destructMidLine ipattern:A ipattern:B ipattern:H.
+	intros; destructMidLine ipattern:(A) ipattern:(B) ipattern:(H).
 	 immediate8.
 Qed.
 
 Lemma TCongruentMidLineAMidLineB : forall A B : Point, forall H : A <> B,
 TCongruent (Tr (LineA (MidLine A B H)) (LineB (MidLine A B H)) A) (Tr (LineA (MidLine A B H)) (LineB (MidLine A B H)) B).
 Proof.
-	intros; destructMidLine ipattern:A ipattern:B ipattern:H.
+	intros; destructMidLine ipattern:(A) ipattern:(B) ipattern:(H).
 	simplLine1.
 	step8 1; immediate8.
 Qed.

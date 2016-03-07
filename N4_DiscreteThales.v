@@ -23,15 +23,15 @@ Proof.
 
 	 repeat rewrite Graduation1; simpl in |- *; repeat split; immediate12.
 
-	 setGraduationPoint5 m A B ipattern:Bm; fold Bm in IHle.
-	   setGraduationPoint5 m A C ipattern:Cm; fold Cm in IHle.
+	 setGraduationPoint5 m A B ipattern:(Bm); fold Bm in IHle.
+	   setGraduationPoint5 m A C ipattern:(Cm); fold Cm in IHle.
 	   decompose [and] IHle; clear IHle.
-	   setGraduationPoint5 (S m) A B ipattern:Bsm; fold Bsm in |- *.
-	   setGraduationPoint5 (S m) A C ipattern:Csm; fold Csm in |- *.
+	   setGraduationPoint5 (S m) A B ipattern:(Bsm); fold Bsm in |- *.
+	   setGraduationPoint5 (S m) A C ipattern:(Csm); fold Csm in |- *.
 	   since12 (Between A Bm Bsm).
 	  unfold Bm, Bsm in |- *; apply GraduationBetweenAnSn; immediate12.
 	  from12 H12 (Clockwise Cm Bm Bsm).
-	    setStrictParallelogramm11 Cm Bm Bsm ipattern:D.
+	    setStrictParallelogramm11 Cm Bm Bsm ipattern:(D).
 	    DestructSP11 H14.
 	    from12 H15 (CongruentAngle D Bsm Bm Cm Bm A).
 	    from12 2 (TCongruent (Tr A B C) (Tr Cm D Csm)).
@@ -96,10 +96,10 @@ Proof.
 	since12 (A <> B).
 	since12 (A <> E).
 	generalize (DThales A B E H5 H6 H4 n H2).
-	setGraduationPoint5 n A B ipattern:Bn; fold Bn in |- *.
-	setGraduationPoint5 n A E ipattern:En; fold En in |- *.
+	setGraduationPoint5 n A B ipattern:(Bn); fold Bn in |- *.
+	setGraduationPoint5 n A E ipattern:(En); fold En in |- *.
 	intros (H11, (H12, (H13, H14))).
-	setStrictParallelogramm11 D A Bn ipattern:F.
+	setStrictParallelogramm11 D A Bn ipattern:(F).
 	 step12 H7.
 	   immediate12.
 	 DestructSP11 H16.
@@ -147,10 +147,10 @@ Proof.
 	since12 (B <> E).
 	since12 (B <> A).
 	generalize (DThales B E A H5 H6 H4 n H2).
-	setGraduationPoint5 n B A ipattern:An; fold An in |- *.
-	setGraduationPoint5 n B E ipattern:En; fold En in |- *.
+	setGraduationPoint5 n B A ipattern:(An); fold An in |- *.
+	setGraduationPoint5 n B E ipattern:(En); fold En in |- *.
 	intros (H11, (H12, (H13, H14))).
-	setStrictParallelogramm11 An B C ipattern:F.
+	setStrictParallelogramm11 An B C ipattern:(F).
 	 step12 H7.
 	   immediate12.
 	 DestructSP11 H16.

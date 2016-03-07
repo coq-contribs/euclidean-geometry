@@ -38,7 +38,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseABK : forall (A B C D : Point) (H : StrictParallelogramm A B C D),
 	Clockwise A B (SPCenter A B C D H).
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	assert (H2 := PCenterBetweenAC A B C D H0).
 	step10 H2.
 Qed.
@@ -46,7 +46,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseBCK : forall (A B C D : Point) (H : StrictParallelogramm A B C D),
 	 Clockwise B C (SPCenter A B C D H).
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	assert (H2 := PCenterBetweenAC A B C D H0).
 	step10 H2.
 Qed.
@@ -54,7 +54,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseBCD : forall A B C D : Point,
 	StrictParallelogramm A B C D -> Clockwise B C D.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	step10 (StrictParallelogrammClockwiseBCK A B C D H); simpl in |- *.
 	assert (H2 := PCenterBetweenBD A B C D H0); immediate10.
 Qed.
@@ -62,7 +62,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseCDK : forall (A B C D : Point) (H :StrictParallelogramm A B C D ),
 	Clockwise C D (SPCenter A B C D H).
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	assert (H2 := StrictParallelogrammClockwiseBCK A B C D H); simpl in H2.
 	step10 (PCenterBetweenBD A B C D H0).
 Qed.
@@ -70,7 +70,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseCDA : forall A B C D : Point,
 	StrictParallelogramm A B C D -> Clockwise C D A.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	step10 (StrictParallelogrammClockwiseCDK A B C D H); simpl in |- *.
 	assert (H2 := PCenterBetweenAC A B C D H0); immediate10.
 Qed.
@@ -78,7 +78,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseDAK : forall (A B C D : Point) (H : StrictParallelogramm A B C D),
 	Clockwise D A (SPCenter A B C D H).
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	assert (H2 := StrictParallelogrammClockwiseCDA A B C D H); simpl in H2.
 	step10 (PCenterBetweenAC A B C D H0).
 Qed.
@@ -86,7 +86,7 @@ Qed.
 Lemma StrictParallelogrammClockwiseDAB : forall A B C D : Point,
 	StrictParallelogramm A B C D -> Clockwise D A B.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	step10 (StrictParallelogrammClockwiseDAK A B C D H); simpl in |- *.
 	assert (H2 := PCenterBetweenBD A B C D H0); immediate10.
 Qed.
@@ -94,7 +94,7 @@ Qed.
 Lemma StrictParallelogrammPerm  : forall A B C D : Point,
 	StrictParallelogramm A B C D -> StrictParallelogramm B C D A.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	apply (SPDef (ParallelogrammPerm A B C D H0)).
 	apply (StrictParallelogrammClockwiseBCD A B C D H).
 Qed.
@@ -169,14 +169,14 @@ Qed.
 Lemma StrictParallelogrammDistinctAB : forall A B C D : Point,
 	StrictParallelogramm A B C D -> A <> B.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	immediate10.
 Qed.
 
 Lemma StrictParallelogrammDistinctBC : forall A B C D : Point,
 	StrictParallelogramm A B C D -> B <> C.
 Proof.
-	intros; DestructSP11 ipattern:H.
+	intros; DestructSP11 ipattern:(H).
 	immediate10.
 Qed.
 
@@ -204,7 +204,7 @@ Lemma EquiDistantStrictParallelogramm : forall A B C D : Point,
 	StrictParallelogramm A B C D.
 Proof.
 	intros.
-	setMidPoint9 A C ipattern:K.
+	setMidPoint9 A C ipattern:(K).
 	since10 (B <> D).
 	 intro; subst B.
 	   contradict1 H0 H.
@@ -231,7 +231,7 @@ Proof.
 	intros.
 	assert (A <> C).
 	 immediate10.
-	 setSymmetricPoint5 B (MidPoint A C H0) ipattern:D.
+	 setSymmetricPoint5 B (MidPoint A C H0) ipattern:(D).
 	  intro; assert (Collinear A B C).
 	   rewrite H1; immediate10.
 	   contradict1 H H2.

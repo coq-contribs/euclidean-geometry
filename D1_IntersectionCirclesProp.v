@@ -10,7 +10,7 @@ Lemma OnCircle1IntersectionCirclesPoint : forall (c1 c2 : Circle) (H : SecantCir
 	OnCircle c1 (IntersectionCirclesPoint c1 c2 H).
 Proof.
 	intros; unfold IntersectionCirclesPoint in |- *.
-	setInterCircles c1 c2 ipattern:J.
+	setInterCircles c1 c2 ipattern:(J).
 	exact Hoc.
 Qed.
 
@@ -18,7 +18,7 @@ Lemma OnCircle2IntersectionCirclesPoint : forall (c1 c2 : Circle) (H : SecantCir
 	OnCircle c2 (IntersectionCirclesPoint c1 c2 H).
 Proof.
 	intros; unfold IntersectionCirclesPoint in |- *.
-	setInterCircles c1 c2 ipattern:J.
+	setInterCircles c1 c2 ipattern:(J).
 	exact Hoc0.
 Qed.
 
@@ -26,7 +26,7 @@ Lemma NotClockwiseIntersectionCirclesPoint : forall (c1 c2 : Circle) (H : Secant
 	~Clockwise (Center c2) (IntersectionCirclesPoint c1 c2 H) (Center c1).
 Proof.
 	intros; unfold IntersectionCirclesPoint in |- *.
-	setInterCircles c1 c2 ipattern:J.
+	setInterCircles c1 c2 ipattern:(J).
 	exact Hck.
 Qed.
 
@@ -35,7 +35,7 @@ Lemma UniqueIntersectionCirclesPoint : forall (c1 c2 : Circle) (H : SecantCircle
 	M = IntersectionCirclesPoint c1 c2 H.
 Proof.
 	intros; unfold IntersectionCirclesPoint in |- *.
-	setInterCircles c1 c2 ipattern:J.
+	setInterCircles c1 c2 ipattern:(J).
 	apply sym_eq; apply Hun; intuition.
 Qed.
 
@@ -58,8 +58,8 @@ Lemma EqThirdPoint : forall A B M N : Point,
 	M = N.
 Proof.
 	intros.
-	setCircle0 A A M ipattern:gamma1.
-	setCircle0 B B M ipattern:gamma2.
+	setCircle0 A A M ipattern:(gamma1).
+	setCircle0 B B M ipattern:(gamma2).
 	apply (EqPointsIntersectionCircles gamma2 gamma1); simplCircle2.
 	 immediate2.
 	 immediate2.
