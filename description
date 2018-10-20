@@ -1,4 +1,4 @@
-Name: EuclidianGeometry
+Name: EuclideanGeometry
 Title: Basis of the Euclid's plane geometry
 Description: This is a more recent version of the basis of Euclid's plane geometry, the previous version was the contribution intitled RulerCompassGeometry.
 The plane geometry is defined as a set of points, with two predicates : Clokwise for the orientation and Equidistant for the metric and three constructors, Ruler for the lines, Compass for the circles and Intersection for the points.
