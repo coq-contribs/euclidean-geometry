@@ -13,7 +13,7 @@ Section STRICT_PARALLELOGRAMM.
 Inductive  StrictParallelogramm (A B C D : Point) : Prop := 
 	| SPDef : Parallelogramm A B C D  -> Clockwise A B C -> StrictParallelogramm A B C D.
 
-Implicit Arguments SPDef [A B C D].
+Arguments SPDef [A B C D].
 
 Ltac DestructSP11 H := let Hp := fresh in let Hc := fresh in 
 	((dependent inversion H as (Hp,Hc) || inversion H as (Hp,Hc)); simpl; clear H; pose (H := SPDef Hp Hc)).
@@ -264,7 +264,7 @@ Qed.
 
 End STRICT_PARALLELOGRAMM.
 
-Implicit Arguments SPDef [A B C D].
+Arguments SPDef [A B C D].
 
 Ltac DestructSP11 H := let Hp := fresh in let Hc := fresh in 
 	((dependent inversion H as (Hp,Hc) || inversion H as (Hp,Hc)); simpl; clear H; pose (H := SPDef Hp Hc)).
